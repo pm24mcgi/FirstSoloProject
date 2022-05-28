@@ -20,31 +20,33 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='LoginModalForm'>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
+      <label className='LoginModalFormInputLvl1'>
         Username or Email
         <input
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
+          className='LoginModalFormInputLvl2'
         />
       </label>
-      <label>
+      <label className='LoginModalFormInputLvl1'>
         Password
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className='LoginModalFormInputLvl2'
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit" className='LoginModalFormInputLvl3'>Log In</button>
     </form>
   );
 }

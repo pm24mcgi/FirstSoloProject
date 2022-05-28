@@ -1,0 +1,8 @@
+.LandingNav{
+    display: flex;
+    background-color: rgb(160, 160, 160);
+}
+
+.LandingNavBtn {
+    text-decoration: none;
+}
