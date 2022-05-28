@@ -11,11 +11,13 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 30],
         isNotEmail(value) {
           if (Validator.isEmail(value)) {
-            throw new Error('Cannot be an email.');
+            throw new Error('Username cannot match email address.');
           }
         }
       }
     },
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -49,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     // associations can be defined here
+
   };
 
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
