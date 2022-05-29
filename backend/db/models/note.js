@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Note.associate = function(models) {
     // associations can be defined here
+    Note.belongsTo(models.Property, {foreignKey: 'propertyId'})
   };
   return Note;
 };

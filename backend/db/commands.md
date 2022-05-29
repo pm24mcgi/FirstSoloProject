@@ -11,3 +11,22 @@ npx sequelize model:generate --name Property --attributes lat:text,long:text,use
 
 ## Note
 npx sequelize model:generate --name Note --attributes description:string,completed:boolean,dueDate:dateonly,body:string,propertyId:integer
+
+
+
+
+
+
+# Seed Generation
+
+## User
+npx sequelize-cli seed:generate --name UsersSeed
+
+## Tag
+npx sequelize-cli seed:generate --name TagsSeed
+
+## Property
+npx sequelize-cli seed:generate --name PropertiesSeed
+
+## Note
+npx sequelize-cli seed:generate --name NotesSeed
