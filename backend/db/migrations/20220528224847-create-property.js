@@ -14,12 +14,17 @@ module.exports = {
       long: {
         type: Sequelize.TEXT(100)
       },
+      address: {
+        type: Sequelize.STRING(256),
+        allowNull: false
+      },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Users',
           key: 'id'
+        }
       },
       tagId: {
         type: Sequelize.INTEGER,
@@ -27,6 +32,7 @@ module.exports = {
         references: {
           model: 'Tags',
           key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

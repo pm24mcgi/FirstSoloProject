@@ -14,6 +14,7 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id'
+        }
       },
       title: {
         type: Sequelize.STRING(100),

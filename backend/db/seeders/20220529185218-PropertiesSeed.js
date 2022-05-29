@@ -12,6 +12,12 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    return queryInterface.bulkInsert('Properties', [
+      {address: '2 Oak Valley St', userId: 4, tagId: 3},
+      {address: '9482 Deerfield Rd', userId: 4, tagId: 6},
+      {address: '462 Alderwood Rd', userId: 4, tagId: 3},
+      {address: '919 Virginia Dr', userId: 4, tagId: 1},
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -22,5 +28,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+    return queryInterface.bulkDelete('Properties', null, {});
   }
 };

@@ -27,6 +27,7 @@ module.exports = {
         references: {
           model: 'Properties',
           key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

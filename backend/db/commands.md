@@ -30,3 +30,13 @@ npx sequelize-cli seed:generate --name PropertiesSeed
 
 ## Note
 npx sequelize-cli seed:generate --name NotesSeed
+
+
+
+
+# DB Commands
+
+npx dotenv sequelize db:drop
+npx dotenv sequelize db:create
+npx dotenv sequelize db:migrate
+npx dotenv sequelize db:seed:all

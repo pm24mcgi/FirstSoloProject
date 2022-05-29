@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Property = sequelize.define('Property', {
     lat: DataTypes.TEXT,
     long: DataTypes.TEXT,
+    address: DataTypes.STRING,
     userId: DataTypes.INTEGER,
     tagId: DataTypes.INTEGER
   }, {});
