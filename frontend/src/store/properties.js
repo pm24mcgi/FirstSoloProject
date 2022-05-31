@@ -10,7 +10,6 @@ const load = list => ({
 
 // "THUNK" ACTIONS CREATORS
 export const getProperites = () => async dispatch => {
-  console.log('Thunk action creator start')
   const response = await csrfFetch(`/api/properties`);
 
   if (response.ok) {

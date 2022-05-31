@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PropertyList from '../PropertyList/index'
+import NewPropertyAdd from '../NewPropertyAdd/index'
 import './LandingPage.css';
 
 function LandingPage({ isLoaded }){
@@ -12,6 +13,7 @@ function LandingPage({ isLoaded }){
           <>
             <div className='MainDisplayDiv'>
               <div className='MainDisplayDiv1'>
+                {/* <NewPropertyAdd /> */}
                 <PropertyList />
               </div>
               <div className='MainDisplayDiv2'>2</div>
