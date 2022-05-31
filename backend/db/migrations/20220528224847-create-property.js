@@ -14,8 +14,20 @@ module.exports = {
       long: {
         type: Sequelize.TEXT(100)
       },
-      address: {
+      street: {
         type: Sequelize.STRING(256),
+        allowNull: false
+      },
+      city: {
+        type: Sequelize.STRING(100),
+        allowNull: false
+      },
+      state: {
+        type: Sequelize.STRING(2),
+        allowNull: false
+      },
+      postal: {
+        type: Sequelize.TEXT(5),
         allowNull: false
       },
       userId: {

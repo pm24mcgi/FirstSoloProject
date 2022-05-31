@@ -10,16 +10,12 @@ const PropertyList = () => {
   const properties = Object.values(useSelector(state => state.properties))
 
   useEffect(() => {
-    console.log('---BEFORE---')
     dispatch(getProperites());
-    console.log('---AFTER---')
   }, [dispatch]);
 
   if (!properties) {
-    console.log('No properties to fetch')
     return null
   } else {
-    console.log(properties)
     return (
       <div>
         <nav>
@@ -33,7 +29,7 @@ const PropertyList = () => {
             }>
               <div>
                 <div>
-                  <div className="primary-text">{property.address}</div>
+                  <div className="primary-text">{property.street}</div>
                 </div>
               </div>
             </NavLink>
