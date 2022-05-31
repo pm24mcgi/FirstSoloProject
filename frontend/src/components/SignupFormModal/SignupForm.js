@@ -13,6 +13,7 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
@@ -27,65 +28,71 @@ function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='SignupForm'>
+    <form onSubmit={handleSubmit} className='SignupModalForm'>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
+      <label  className='SignupModalFormInputLvl1'>
         Email
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className='SignupModalFormInputLvl2'
         />
       </label>
-      <label>
+      <label  className='SignupModalFormInputLvl1'>
         Username
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          className='SignupModalFormInputLvl2'
         />
       </label>
-      <label>
+      <label  className='SignupModalFormInputLvl1'>
         Password
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className='SignupModalFormInputLvl2'
         />
       </label>
-      <label>
+      <label  className='SignupModalFormInputLvl1'>
         First Name
         <input
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
+          className='SignupModalFormInputLvl2'
         />
       </label>
-      <label>
+      <label  className='SignupModalFormInputLvl1'>
         Last Name
         <input
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required
+          className='SignupModalFormInputLvl2'
         />
       </label>
-      <label>
+      <label  className='SignupModalFormInputLvl1'>
         Confirm Password
         <input
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          className='SignupModalFormInputLvl2'
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button type="submit" className='SignupModalFormInputLvl3'>Sign Up</button>
     </form>
   );
 }
