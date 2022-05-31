@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import LandingPage from '../src/components/LandingPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -15,8 +16,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
-        <Switch>
-        </Switch>
+        <LandingPage />
       )}
     </>
   );

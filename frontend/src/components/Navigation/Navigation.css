@@ -2,9 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
     background-color: rgb(160, 160, 160);
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid black;
 }
 
 .LandingNavBtn {
