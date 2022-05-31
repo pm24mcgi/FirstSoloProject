@@ -8,7 +8,14 @@ function LandingPage({ isLoaded }){
     let mainDisplay;
     if (sessionUser) {
         mainDisplay = (
-          <div>LOGGED IN USER TEST</div>
+          <>
+            <div className='MainDisplayDiv'>
+              <div className='MainDisplayDiv1'>1</div>
+              <div className='MainDisplayDiv2'>2</div>
+              <div className='MainDisplayDiv3'>3</div>
+            </div>
+            <div>Footer</div>
+          </>
         );
       } else {
         mainDisplay = (

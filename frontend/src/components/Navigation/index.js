@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
   return (
     <nav className='LandingNav'>
       <NavLink exact to="/" className='LandingNavBtn'>Home</NavLink>
-      <div>
+      <div className='MainNav'>
         {isLoaded && sessionLinks}
       </div>
     </nav>
