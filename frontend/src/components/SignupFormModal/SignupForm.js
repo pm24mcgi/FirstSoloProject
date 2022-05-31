@@ -53,16 +53,6 @@ function SignupForm() {
         />
       </label>
       <label  className='SignupModalFormInputLvl1'>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className='SignupModalFormInputLvl2'
-        />
-      </label>
-      <label  className='SignupModalFormInputLvl1'>
         First Name
         <input
           type="text"
@@ -78,6 +68,16 @@ function SignupForm() {
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
+          required
+          className='SignupModalFormInputLvl2'
+        />
+      </label>
+      <label  className='SignupModalFormInputLvl1'>
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
           className='SignupModalFormInputLvl2'
         />
