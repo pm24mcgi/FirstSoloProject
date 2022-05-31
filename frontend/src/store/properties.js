@@ -1,3 +1,5 @@
+import { csrfFetch } from './csrf';
+
 const LOAD = '/LOAD';
 
 // ACTION CREATORS
@@ -8,12 +10,8 @@ const load = list => ({
 
 // "THUNK" ACTIONS CREATORS
 export const getProperites = () => async dispatch => {
-  const response = await fetch(`/api/properties`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
+  console.log('Thunk action creator start')
+  const response = await csrfFetch(`/api/properties`);
 
   if (response.ok) {
     const propertyList = await response.json();

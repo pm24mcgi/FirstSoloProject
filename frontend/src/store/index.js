@@ -6,7 +6,7 @@ import propertyReducer from './properties'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  property: propertyReducer
+  properties: propertyReducer
 });
 
 let enhancer;
