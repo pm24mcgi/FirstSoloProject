@@ -20,7 +20,7 @@ function App() {
         <div>
           <LandingPage />
           <Switch>
-            <Route path='/properties'></Route>
+            <Route exact path='/properties'></Route>
             <Route path='/properties/:PropertyId'>
               <PropertyDelete />
             </Route>
