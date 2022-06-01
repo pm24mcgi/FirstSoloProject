@@ -19,7 +19,6 @@ const NewPropertyAdd = () => {
     e.preventDefault();
 
     const userId = sessionUser.id
-    console.log(userId)
 
     const payload = {
       street,
@@ -29,11 +28,7 @@ const NewPropertyAdd = () => {
       userId
     }
 
-    console.log('hanldesub Middle')
-    console.log(payload)
-
     let newProperty = await dispatch(postProperites(payload))
-    console.log('hanldesub Exit')
       if (newProperty) {
        return history.push('/')
       }

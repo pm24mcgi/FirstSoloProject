@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 import PropertyList from '../PropertyList/index'
 import NewPropertyAdd from '../NewPropertyAdd/index'
+import PropertyDelete from '../DeleteProperty/index'
 import './LandingPage.css';
 
 function LandingPage({ isLoaded }){
