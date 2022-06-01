@@ -4,40 +4,39 @@ const router = express.Router();
 const db = require('../../db/models');
 const { Property } = db;
 
-const propertyValidations = require('../../Validations/Properties')
-
 router.get('/', asyncHandler(async (req, res, next) => {
     const properties = await Property.findAll()
     return res.json(properties)
 }))
 
-router.post('/', propertyValidations.validateCreate, asyncHandler(async (req, res, next) => {
+router.post('/', asyncHandler(async (req, res, next) => {
     const {
-        lat,
-        long,
-        address
+        street,
+        city,
+        state,
+        postal,
+        userId
     } = req.body
     const property = await Property.build({
-        lat,
-        long,
-        address
+        street,
+        city,
+        state,
+        postal,
+        userId
     })
-    const validatorErrors = validationResult(req);
 
-    if (validatorErrors.isEmpty()) {
-        await task.save();
-        return res.redirect('/');
-    }
+    const newProp = await property.save();
+    return res.json(newProp)
 }))
 
-router.put('/', asyncHandler(async (req, res, next) => {
-    const properties = await Property.findAll()
-    return res.json(properties)
-}))
+// router.put('/', asyncHandler(async (req, res, next) => {
+//     const properties = await Property.findAll()
+//     return res.json(properties)
+// }))
 
-router.delete('/', asyncHandler(async (req, res, next) => {
-    const properties = await Property.findAll()
-    return res.json(properties)
-}))
+// router.delete('/', asyncHandler(async (req, res, next) => {
+//     const properties = await Property.findAll()
+//     return res.json(properties)
+// }))
 
 module.exports = router;

@@ -13,7 +13,7 @@ function LandingPage({ isLoaded }){
           <>
             <div className='MainDisplayDiv'>
               <div className='MainDisplayDiv1'>
-                {/* <NewPropertyAdd /> */}
+                <NewPropertyAdd />
                 <PropertyList />
               </div>
               <div className='MainDisplayDiv2'>2</div>
