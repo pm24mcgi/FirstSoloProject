@@ -1,0 +1,33 @@
+.LandingNav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: rgb(160, 160, 160);
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid black;
+}
+
+.LandingNavBtn {
+  text-decoration: none;
+}
+
+.ModalBtns {
+  display: flex;
+}
+
+.SignupFormModal {
+  margin: 15px;
+}
+
+.LoginFormModal {
+  margin: 15px;
+}
+
+.MainNav {
+  padding: 15px;
+  position: sticky;
+  top: 0;
+}

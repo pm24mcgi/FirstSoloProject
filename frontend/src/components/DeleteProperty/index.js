@@ -18,7 +18,7 @@ const PropertyDelete = () => {
 
     let propertyDelete = await dispatch(deleteProperties(currentProperty))
     console.log('HandleDelete Exit')
-      if (propertyDelete) {
+    if (propertyDelete) {
        return history.push('/')
       }
   };
