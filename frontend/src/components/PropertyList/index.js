@@ -10,8 +10,6 @@ const PropertyList = () => {
   const properties = Object.values(useSelector(state => state.properties))
   const sessionUser = useSelector(state => state.session.user)
 
-
-
   useEffect(() => {
     dispatch(getProperites());
   }, [dispatch]);
@@ -24,7 +22,7 @@ const PropertyList = () => {
         <nav>
         {properties.map((property) => {
           return (
-            (sessionUser === property.userId) &&
+            (sessionUser.id === property.userId) &&
               (<NavLink key={property.id} to={`/properties/${property.id}`}
                 className={
                 Number.parseInt(propertyId) === property.id
