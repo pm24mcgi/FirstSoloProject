@@ -8,6 +8,9 @@ const PropertyList = () => {
   const { propertyId } = useParams();
   const dispatch = useDispatch();
   const properties = Object.values(useSelector(state => state.properties))
+  const sessionUser = useSelector(state => state.session.user)
+
+
 
   useEffect(() => {
     dispatch(getProperites());
@@ -21,19 +24,20 @@ const PropertyList = () => {
         <nav>
         {properties.map((property) => {
           return (
-            <NavLink key={property.id} to={`/properties/${property.id}`}
-              className={
-              Number.parseInt(propertyId) === property.id
-                ? "nav-entry is-selected"
-                : "nav-entry"
-            }>
-              <div>
+            (sessionUser === property.userId) &&
+              (<NavLink key={property.id} to={`/properties/${property.id}`}
+                className={
+                Number.parseInt(propertyId) === property.id
+                  ? "nav-entry is-selected"
+                  : "nav-entry"
+              }>
                 <div>
-                  <div className="primary-text">{property.street}</div>
+                  <div>
+                    <div className="primary-text">{property.street}</div>
+                  </div>
                 </div>
-              </div>
-            </NavLink>
-          )
+              </NavLink>)
+            )
         })}
         </nav>
       </div>
