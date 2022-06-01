@@ -14,17 +14,19 @@ router.post('/', asyncHandler(async (req, res, next) => {
         street,
         city,
         state,
-        postal
+        postal,
+        userId
     } = req.body
     const property = await Property.build({
         street,
         city,
         state,
-        postal
+        postal,
+        userId
     })
 
-    await property.save();
-    return res.redirect('/');
+    const newProp = await property.save();
+    return res.json(newProp)
 }))
 
 // router.put('/', asyncHandler(async (req, res, next) => {

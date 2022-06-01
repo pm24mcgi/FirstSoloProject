@@ -7,9 +7,16 @@
   padding: 1em;
   text-decoration: none;
   color: black;
+  background-image: linear-gradient(to bottom right, rgb(169, 169, 169), rgb(255, 255, 255));
 }
 
-.is-selected {
-  border-right-color: orange;
-  background-color: #FFF3E0;
+a.nav-entry.active {
+  background-image: linear-gradient(to bottom right, rgb(86, 86, 86), rgb(255, 255, 255));
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  border-radius: 5px;
+}
+
+nav {
+  padding-top: 15px;
 }
