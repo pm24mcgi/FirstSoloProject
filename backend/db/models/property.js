@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Property.belongsTo(models.User, {foreignKey: 'userId'})
     Property.belongsTo(models.Tag, {foreignKey: 'tagId'})
-    Property.hasMany(models.Note, {foreignKey: 'propertyId'})
+    Property.hasMany(models.Note, {foreignKey: 'propertyId', onDelete: 'cascade', hooks: 'true'
+  })
   };
   return Property;
 };
