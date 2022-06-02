@@ -1,5 +1,11 @@
 /* TODO Add site wide styles */
-body {
+body, html {
+    height: 100%;
+    width: 100%;
     margin: 0;
     font-size: 20px;
+}
+
+.test10 {
+    display: flex;
 }

@@ -6,6 +6,7 @@ import './DeleteProperty.css'
 const PropertyDelete = () => {
   const sessionUser = useSelector(state => state.session.user);
   const currentProperty = useParams().PropertyId
+  console.log(useParams())
 
   console.log("---------->", currentProperty)
   const dispatch = useDispatch();

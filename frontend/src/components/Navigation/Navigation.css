@@ -1,4 +1,4 @@
-.LandingNav{
+.ModalBtns{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,8 +10,11 @@
     border-bottom: 1px solid black;
 }
 
-.LandingNavBtn {
+.HomeBtn {
     text-decoration: none;
+    background-color: azure;
+    border-radius: 5px;
+    padding: 7px;
 }
 
 .ModalBtns {
@@ -28,6 +31,16 @@
 
 .MainNav {
     padding: 15px;
-    position: sticky;
     top: 0;
+}
+
+.Properties.Nav{
+    height: 90vh;
+}
+
+.PropertiesNav.Internal {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
 }

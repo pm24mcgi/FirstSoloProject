@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import LandingPage from './components/LandingPage'
+import Main from './components/Main'
 import PropertyDelete from "./components/DeleteProperty";
 
 function App() {
@@ -18,12 +18,20 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <div>
-          <LandingPage />
           <Switch>
-            <Route path='/properties/:PropertyId'>
-              <PropertyDelete />
+            <Route exact path='/'>
+              <Main />
+            </Route>
+            <Route exact path='/properties'>
+              <div>random</div>
+            </Route>
+            <Route exact path='/properties/:PropertyId'>
+              <div className='test10'>
+                <PropertyDelete />
+              </div>
             </Route>
           </Switch>
+        <div>Footer</div>
         </div>
       )}
     </>
