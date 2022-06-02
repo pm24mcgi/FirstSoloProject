@@ -63,17 +63,17 @@ export const deleteProperties = (propertyId) => async dispatch => {
   }
 }
 
-// export const editProperty = (propertyId, payload) => dispatch => {
-//   const res = await csrfFetch(`/api/properties/${propertyId}`, {
-//     method: "PUT",
-//     body: JSON.stringify({payload})
-//   })
-//   const property = await res.json()
-//   if (property) {
-//     dispatch(edit(property))
-//   }
-//   return property
-// }
+export const editProperty = (propertyId, payload) => dispatch => {
+  const res = await csrfFetch(`/api/properties/${propertyId}`, {
+    method: "PUT",
+    body: JSON.stringify({payload})
+  })
+  const property = await res.json()
+  if (property) {
+    dispatch(edit(property))
+  }
+  return property
+}
 
 // REDUCER
 const propertyReducer = (state = {}, action) => {
