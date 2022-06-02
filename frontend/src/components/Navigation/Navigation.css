@@ -34,10 +34,6 @@
     top: 0;
 }
 
-.Properties.Nav{
-    height: 90vh;
-}
-
 .PropertiesNav.Internal {
     display: flex;
     justify-content: space-between;

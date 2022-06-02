@@ -14,27 +14,27 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className='TopLevelParentContainer'>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <div>
-          <Switch>
-            <Route exact path='/'>
-              <Main />
-            </Route>
-            <Route exact path='/properties'>
-              <div>random</div>
-            </Route>
-            <Route exact path='/properties/:PropertyId'>
-              <div className='test10'>
+      <div className='TopLevelInternalContainer'>
+        <div className='BottomLevelInternalContainer'>
+          {isLoaded && (
+            <Switch>
+              <Route exact path='/'>
+                <Main />
+              </Route>
+              <Route exact path='/properties'>
+                <div>random</div>
+              </Route>
+              <Route exact path='/properties/:PropertyId'>
                 <PropertyDelete />
-              </div>
-            </Route>
-          </Switch>
-        <div>Footer</div>
+              </Route>
+            </Switch>
+          )}
         </div>
-      )}
-    </>
+        <div>Footer</div>
+      </div>
+    </div>
   );
 }
 

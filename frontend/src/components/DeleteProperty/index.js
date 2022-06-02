@@ -17,11 +17,8 @@ const PropertyDelete = () => {
     e.preventDefault();
     console.log(currentProperty)
 
-    let propertyDelete = await dispatch(deleteProperties(currentProperty))
-    console.log('HandleDelete Exit')
-      if (propertyDelete) {
-       return history.push('/')
-      }
+    await dispatch(deleteProperties(currentProperty))
+    return history.push('/properties')
   };
 
   return (

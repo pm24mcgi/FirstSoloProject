@@ -18,8 +18,8 @@ const PropertyList = () => {
     return null
   } else {
     return (
-      <div>
-        <nav>
+      <div className='PropertyList MainDiv'>
+        <nav className='PropertyList MainNav'>
         {properties.map((property) => {
           return (
             (sessionUser.id === property.userId) &&

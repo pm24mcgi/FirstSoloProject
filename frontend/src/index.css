@@ -1,11 +1,37 @@
 /* TODO Add site wide styles */
-body, html {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    font-size: 20px;
+html, body {
+    margin:0px;
+    height:100%;
+    font-size: 15px;
+  }
+
+.TopLevelParentContainer {
+    display: flex;
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:15px;
+    left:0px;
 }
 
-.test10 {
+.LandingNav {
+    background-color: brown;
+}
+
+.LandingNav {
+    width: fit-content;
+    height: 100%;
+}
+
+.TopLevelInternalContainer {
     display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.BottomLevelInternalContainer {
+    display: flex;
+    width: auto;
+    height: 90vh;
+    background-color: bisque;
 }
