@@ -22,11 +22,6 @@ const EditProperty = ({propertyId}) => {
   const [state, setState] = useState(thisProp.state || '');
   const [postal, setPostal] = useState(thisProp.postal || '');
 
-  // const [street, setStreet] = useState('');
-  // const [city, setCity] = useState('');
-  // const [state, setState] = useState('');
-  // const [postal, setPostal] = useState('');
-
   useEffect (() => {
     setStreet(thisProp.street)
     setCity(thisProp.city)
