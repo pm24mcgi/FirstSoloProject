@@ -16,7 +16,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <div className='Properties Nav'>
         <div className="PropertiesNav Internal">
-          <NavLink exact to="/" className='HomeBtn'>Home</NavLink>
+          <NavLink exact to="/properties" className='HomeBtn'>Home</NavLink>
           <ProfileButton user={sessionUser} />
         </div>
           <NewPropertyAdd />

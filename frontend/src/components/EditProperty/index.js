@@ -11,9 +11,7 @@ const EditProperty = ({propertyId}) => {
   const sessionUser = useSelector(state => state.session.user);
   const {id} = propertyId
   const propObj = useSelector(state => state.properties)
-  console.log(propObj)
   const thisProp = propObj[id]
-  console.log(thisProp)
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -31,7 +29,6 @@ const EditProperty = ({propertyId}) => {
 
 
   const handleSubmit = async (e) => {
-    console.log('Comp 2')
     e.preventDefault();
 
     const userId = sessionUser.id
@@ -44,7 +41,7 @@ const EditProperty = ({propertyId}) => {
       postal,
       userId
     }
-    console.log('Comp 3')
+
     await dispatch(editProperty(id, payload))
         .then(() => history.push('/properties'))
   };

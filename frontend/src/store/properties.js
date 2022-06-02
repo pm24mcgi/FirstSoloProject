@@ -45,12 +45,10 @@ export const postProperites = (payload) => async dispatch => {
 }
 
 export const deleteProperties = (propertyId) => async dispatch => {
-  console.log('DELETE THUNK ENTRY')
   const response = await csrfFetch(`/api/properties/${propertyId}`, {
     method: 'DELETE',
     body: JSON.stringify({propertyId})
   })
-  console.log('DELETE THUNK TEST')
   if (response.ok) {
     const property = await response.json();
     dispatch(remove(property.id));
@@ -58,22 +56,13 @@ export const deleteProperties = (propertyId) => async dispatch => {
 }
 
 export const editProperty = (propertyId, payload) => async dispatch => {
-  console.log(propertyId)
-  console.log(payload)
-
-  console.log('THUNK 1')
-
   const res = await csrfFetch(`/api/properties/${propertyId}`, {
     method: "PUT",
     body: JSON.stringify({propertyId, payload})
   })
 
-  console.log('THUNK 2')
-
   const property = await res.json()
   if (property) {
-
-    console.log('THUNK 3')
 
     dispatch(create(property))
   }
@@ -90,7 +79,6 @@ const propertyReducer = (state = {}, action) => {
       });
       return allProperties
     case CREATE:
-      console.log('HIT REDUCER')
       return {...state, [action.property.id]: action.property}
     case REMOVE:
       const deleteState = {...state};

@@ -35,7 +35,6 @@ const NewPropertyAdd = () => {
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    console.log(e)
     e.className === 'AddPropertyFormToggleHidden' ? e.className='AddPropertyFormToggle' : e.className='AddPropertyFormToggleHidden'
   };
 
