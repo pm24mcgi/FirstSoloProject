@@ -24,7 +24,7 @@ function App() {
                 <Main />
               </Route>
               <Route exact path='/properties'>
-                <div>random</div>
+                <div>Hopefully a Map?</div>
               </Route>
               <Route exact path='/properties/:PropertyId'>
                 <SoloProperty />
