@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal'
+import PropertyList from '../PropertyList/index'
+import NewPropertyAdd from '../NewPropertyAdd/index'
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -12,7 +14,14 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <div className='Properties Nav'>
+        <div className="PropertiesNav Internal">
+          <NavLink exact to="/" className='HomeBtn'>Home</NavLink>
+          <ProfileButton user={sessionUser} />
+        </div>
+          <NewPropertyAdd />
+          <PropertyList />
+      </div>
     );
   } else {
     sessionLinks = (
@@ -29,7 +38,6 @@ function Navigation({ isLoaded }){
 
   return (
     <nav className='LandingNav'>
-      <NavLink exact to="/" className='LandingNavBtn'>Home</NavLink>
       <div className='MainNav'>
         {isLoaded && sessionLinks}
       </div>

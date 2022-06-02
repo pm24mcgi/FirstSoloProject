@@ -4,9 +4,9 @@ import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 import PropertyList from '../PropertyList/index'
 import NewPropertyAdd from '../NewPropertyAdd/index'
 import PropertyDelete from '../DeleteProperty/index'
-import './LandingPage.css';
+import './Main.css';
 
-function LandingPage({ isLoaded }){
+function Main({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
 
     let mainDisplay;
@@ -15,13 +15,13 @@ function LandingPage({ isLoaded }){
           <>
             <div className='MainDisplayDiv'>
               <div className='MainDisplayDiv1'>
-                <NewPropertyAdd />
-                <PropertyList />
+                {/* <NewPropertyAdd />
+                <PropertyList /> */}
               </div>
-              <div className='MainDisplayDiv2'>2</div>
-              <div className='MainDisplayDiv3'>3</div>
+              {/* <div className='MainDisplayDiv2'>2</div>
+                <PropertyDelete />
+              <div className='MainDisplayDiv3'>3</div> */}
             </div>
-            <div>Footer</div>
           </>
         );
       } else {
@@ -44,4 +44,4 @@ function LandingPage({ isLoaded }){
     );
 }
 
-export default LandingPage;
+export default Main;

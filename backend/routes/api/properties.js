@@ -5,12 +5,12 @@ const router = express.Router();
 const db = require('../../db/models');
 const { Property } = db;
 
-router.get('/', asyncHandler(async (req, res, next) => {
+router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
     const properties = await Property.findAll()
     return res.json(properties)
 }))
 
-router.post('/', asyncHandler(async (req, res, next) => {
+router.post('/', requireAuth, asyncHandler(async (req, res, next) => {
     const {
         street,
         city,
