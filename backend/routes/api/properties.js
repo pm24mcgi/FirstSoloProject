@@ -30,10 +30,33 @@ router.post('/', requireAuth, asyncHandler(async (req, res, next) => {
     return res.json(newProp)
 }))
 
-// router.put('/', asyncHandler(async (req, res, next) => {
-//     const properties = await Property.findAll()
-//     return res.json(properties)
-// }))
+router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
+    console.log('BACKEND 1')
+
+    const {
+        street,
+        city,
+        state,
+        postal,
+        userId
+    } = req.body.payload
+
+    console.log('BACKEND 2')
+
+    console.log(req.body.propertyId)
+    console.log(req.body.payload)
+    const property = await Property.findByPk(req.body.propertyId)
+    const editProperty = await property.update({
+        street,
+        city,
+        state,
+        postal,
+        userId
+    })
+
+    console.log(editProperty)
+    res.json(editProperty)
+}))
 
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
     const deleteProperty = await Property.findByPk(req.body.propertyId)

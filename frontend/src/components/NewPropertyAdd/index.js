@@ -15,7 +15,6 @@ const NewPropertyAdd = () => {
   const [postal, setPostal] = useState('');
 
   const handleSubmit = async (e) => {
-    console.log('hanldesub entry')
     e.preventDefault();
 
     const userId = sessionUser.id
