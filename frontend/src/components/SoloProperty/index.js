@@ -1,31 +1,20 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
-// import './SoloProperty.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
+import PropertyDelete from '../DeleteProperty';
+import './SoloProperty.css'
 
 
-// const SoloProperty = () => {
-//   const sessionUser = useSelector(state => state.session.user);
-//   const currentProperty = useParams().PropertyId
-//   console.log(useParams())
+const SoloProperty = () => {
+  const sessionUser = useSelector(state => state.session.user);
+  const currentProperty = useParams().PropertyId
 
-//   console.log("---------->", currentProperty)
-//   const dispatch = useDispatch();
-//   const history = useHistory();
+  return (
+    <div>
+      <PropertyDelete
+        propertyId={{id:currentProperty}}
+      />
+    </div>
+  )
+};
 
-//   const handleDelete = async (e) => {
-//     console.log('HandleDelete entry')
-//     e.preventDefault();
-//     console.log(currentProperty)
-
-//     await dispatch(deleteProperties(currentProperty))
-//     return history.push('/properties')
-//   };
-
-//   return (
-//     <button onClick={handleDelete}>
-//       Delete Property
-//     </button>
-//   )
-// };
-
-// export default SoloProperty;
+export default SoloProperty;

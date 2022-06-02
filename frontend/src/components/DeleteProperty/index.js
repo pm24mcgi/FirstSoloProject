@@ -3,21 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 import './DeleteProperty.css'
 
-const PropertyDelete = () => {
+const PropertyDelete = ({propertyId}) => {
   const sessionUser = useSelector(state => state.session.user);
-  const currentProperty = useParams().PropertyId
-  console.log(useParams())
+  const {id} = propertyId
 
-  console.log("---------->", currentProperty)
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleDelete = async (e) => {
-    console.log('HandleDelete entry')
     e.preventDefault();
-    console.log(currentProperty)
-
-    await dispatch(deleteProperties(currentProperty))
+    await dispatch(deleteProperties(id))
     return history.push('/properties')
   };
 
