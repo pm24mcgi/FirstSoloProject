@@ -3,7 +3,6 @@ import { csrfFetch } from './csrf';
 const LOAD = '/LOAD';
 const CREATE = '/CREATE'
 const REMOVE = '/REMOVE'
-const EDIT = '/EDIT'
 
 // ACTION CREATORS
 const load = list => ({
@@ -18,11 +17,6 @@ const create = property => ({
 
 const remove = property => ({
   type: REMOVE,
-  property
-})
-
-const edit = property => ({
-  type: EDIT,
   property
 })
 
@@ -63,14 +57,25 @@ export const deleteProperties = (propertyId) => async dispatch => {
   }
 }
 
-export const editProperty = (propertyId, payload) => dispatch => {
+export const editProperty = (propertyId, payload) => async dispatch => {
+  console.log(propertyId)
+  console.log(payload)
+
+  console.log('THUNK 1')
+
   const res = await csrfFetch(`/api/properties/${propertyId}`, {
     method: "PUT",
-    body: JSON.stringify({payload})
+    body: JSON.stringify({propertyId, payload})
   })
+
+  console.log('THUNK 2')
+
   const property = await res.json()
   if (property) {
-    dispatch(edit(property))
+
+    console.log('THUNK 3')
+
+    dispatch(create(property))
   }
   return property
 }
@@ -85,7 +90,7 @@ const propertyReducer = (state = {}, action) => {
       });
       return allProperties
     case CREATE:
-      console.log(action.property)
+      console.log('HIT REDUCER')
       return {...state, [action.property.id]: action.property}
     case REMOVE:
       const deleteState = {...state};
