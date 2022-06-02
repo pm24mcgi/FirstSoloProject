@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Main from './components/Main'
-import PropertyDelete from "./components/DeleteProperty";
+import SoloProperty from "./components/SoloProperty";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function App() {
                 <div>random</div>
               </Route>
               <Route exact path='/properties/:PropertyId'>
-                <PropertyDelete />
+                <SoloProperty />
               </Route>
             </Switch>
           )}
