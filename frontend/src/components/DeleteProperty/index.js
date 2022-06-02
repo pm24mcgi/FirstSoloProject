@@ -10,9 +10,9 @@ const PropertyDelete = ({propertyId}) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleDelete = async (e) => {
+  const handleDelete = (e) => {
     e.preventDefault();
-    await dispatch(deleteProperties(id))
+    dispatch(deleteProperties(id))
     return history.push('/properties')
   };
 

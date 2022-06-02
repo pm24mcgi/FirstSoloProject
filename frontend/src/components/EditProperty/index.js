@@ -28,7 +28,7 @@ const EditProperty = ({propertyId}) => {
   // const [postal, setPostal] = useState('');
 
   useEffect (() => {
-    setStreet(thisProp ? thisProp.street : '')
+    setStreet(thisProp.street)
     setCity(thisProp.city)
     setState(thisProp.state)
     setPostal(thisProp.postal)
