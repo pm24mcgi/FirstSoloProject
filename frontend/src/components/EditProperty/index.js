@@ -15,17 +15,22 @@ const EditProperty = ({propertyId}) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const [street, setStreet] = useState(thisProp.street || '');
-  const [city, setCity] = useState(thisProp.city || '');
-  const [state, setState] = useState(thisProp.state || '');
-  const [postal, setPostal] = useState(thisProp.postal || '');
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [postal, setPostal] = useState("");
 
-  useEffect (() => {
-    setStreet(thisProp.street)
-    setCity(thisProp.city)
-    setState(thisProp.state)
-    setPostal(thisProp.postal)
-  }, [id])
+  // const [street, setStreet] = useState(thisProp.street || '');
+  // const [city, setCity] = useState(thisProp.city || '');
+  // const [state, setState] = useState(thisProp.state || '');
+  // const [postal, setPostal] = useState(thisProp.postal || '');
+
+  // useEffect (() => {
+  //   setStreet(thisProp.street)
+  //   setCity(thisProp.city)
+  //   setState(thisProp.state)
+  //   setPostal(thisProp.postal)
+  // }, [id])
 
 
   const handleSubmit = async (e) => {

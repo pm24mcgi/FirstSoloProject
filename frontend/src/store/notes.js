@@ -21,8 +21,11 @@ const load = list => ({
 // })
 
 // "THUNK" ACTIONS CREATORS
-export const getNotes = () => async dispatch => {
-  const response = await csrfFetch(`/api/notes`);
+export const getNotes = (propertyId) => async dispatch => {
+  const response = await csrfFetch(`/api/notes/${propertyId}`, {
+        method: 'GET',
+        // body: JSON.stringify({propertyId})
+      });
 
   if (response.ok) {
     const noteList = await response.json();
@@ -73,11 +76,11 @@ export const getNotes = () => async dispatch => {
 const noteReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD:
-      const allNotes = {};
-      action.list.forEach(note => {
-        allNotes[note.id] = note;
+      const allProperties = {};
+      action.list.forEach(property => {
+        allProperties[property.id] = property;
       });
-      return allNotes
+      return allProperties
     // case CREATE:
     //   return {...state, [action.property.id]: action.property}
     // case REMOVE:

@@ -5,8 +5,12 @@ const router = express.Router();
 const db = require('../../db/models');
 const { Note } = db;
 
-router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
-    const notes = await Note.findAll()
+router.get('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
+    const notes = await Note.findAll({
+        where: {
+            propertyId: req.params.propertyId
+        }
+    })
     return res.json(notes)
 }))
 
