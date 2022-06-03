@@ -11,27 +11,29 @@ const EditProperty = ({propertyId}) => {
   const sessionUser = useSelector(state => state.session.user);
   const {id} = propertyId
   const propObj = useSelector(state => state.properties)
-  console.log(propObj)
   const thisProp = propObj[id]
-  console.log(thisProp)
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const [street, setStreet] = useState(thisProp.street || '');
-  const [city, setCity] = useState(thisProp.city || '');
-  const [state, setState] = useState(thisProp.state || '');
-  const [postal, setPostal] = useState(thisProp.postal || '');
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [postal, setPostal] = useState("");
 
-  useEffect (() => {
-    setStreet(thisProp.street)
-    setCity(thisProp.city)
-    setState(thisProp.state)
-    setPostal(thisProp.postal)
-  }, [id])
+  // const [street, setStreet] = useState(thisProp.street || '');
+  // const [city, setCity] = useState(thisProp.city || '');
+  // const [state, setState] = useState(thisProp.state || '');
+  // const [postal, setPostal] = useState(thisProp.postal || '');
+
+  // useEffect (() => {
+  //   setStreet(thisProp.street)
+  //   setCity(thisProp.city)
+  //   setState(thisProp.state)
+  //   setPostal(thisProp.postal)
+  // }, [id])
 
 
   const handleSubmit = async (e) => {
-    console.log('Comp 2')
     e.preventDefault();
 
     const userId = sessionUser.id
@@ -44,7 +46,7 @@ const EditProperty = ({propertyId}) => {
       postal,
       userId
     }
-    console.log('Comp 3')
+
     await dispatch(editProperty(id, payload))
         .then(() => history.push('/properties'))
   };

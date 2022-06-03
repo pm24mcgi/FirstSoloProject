@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 
 import sessionReducer from './session';
 import propertyReducer from './properties'
+import noteReducer from "./notes";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  properties: propertyReducer
+  properties: propertyReducer,
+  notes: noteReducer
 });
 
 let enhancer;

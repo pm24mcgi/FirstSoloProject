@@ -24,7 +24,7 @@ function App() {
                 <Main />
               </Route>
               <Route exact path='/properties'>
-                <div>random</div>
+                <div>Hopefully a Map?</div>
               </Route>
               <Route exact path='/properties/:PropertyId'>
                 <SoloProperty />
@@ -32,7 +32,9 @@ function App() {
             </Switch>
           )}
         </div>
-        <div>Footer</div>
+        <div>Footer:
+          <div>Cool Stuff Here</div>
+        </div>
       </div>
     </div>
   );

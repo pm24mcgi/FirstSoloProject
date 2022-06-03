@@ -31,8 +31,6 @@ router.post('/', requireAuth, asyncHandler(async (req, res, next) => {
 }))
 
 router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
-    console.log('BACKEND 1')
-
     const {
         street,
         city,
@@ -41,11 +39,8 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
         userId
     } = req.body.payload
 
-    console.log('BACKEND 2')
-
-    console.log(req.body.propertyId)
-    console.log(req.body.payload)
     const property = await Property.findByPk(req.body.propertyId)
+
     const editProperty = await property.update({
         street,
         city,
@@ -54,7 +49,6 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
         userId
     })
 
-    console.log(editProperty)
     res.json(editProperty)
 }))
 
