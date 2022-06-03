@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 import { getNotes } from '../../store/notes'
+import EditProperty from '../EditProperty';
+import NoteDisplay from '../NoteDisplay';
 import './NoteList.css';
 
 const PropertyList = ({propertyId}) => {
@@ -9,8 +11,6 @@ const PropertyList = ({propertyId}) => {
 
   const dispatch = useDispatch();
   const notes = Object.values(useSelector(state => state.notes))
-
-  console.log('notes ------>', notes)
 
   useEffect (() => {
     dispatch(getNotes(id))
@@ -21,7 +21,11 @@ const PropertyList = ({propertyId}) => {
     <>
       {notes.length > 0 &&
         notes.map((note) => { return (
-          <div>Property Description:{note.body}</div>
+          <NoteDisplay note={note} />
+          // <div>Property Description:{note.description}
+          //   <div>Property Body:{note.body}</div>
+            // <button onClick={handleClick}>Edit Note</button>
+          // </div>
         )
       })}
     </>

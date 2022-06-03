@@ -1,8 +1,8 @@
 import { csrfFetch } from './csrf';
 
 const LOAD = '/notes/LOAD';
-// const CREATE = '/CREATE'
-// const REMOVE = '/REMOVE'
+const CREATE = '/notes/CREATE'
+const REMOVE = '/notes/REMOVE'
 
 // ACTION CREATORS
 const load = list => ({
@@ -10,15 +10,15 @@ const load = list => ({
   list
 });
 
-// const create = property => ({
-//   type: CREATE,
-//   property
-// });
+const create = note => ({
+  type: CREATE,
+  note
+});
 
-// const remove = property => ({
-//   type: REMOVE,
-//   property
-// })
+const remove = noteId => ({
+  type: REMOVE,
+  noteId
+})
 
 // "THUNK" ACTIONS CREATORS
 export const getNotes = (propertyId) => async dispatch => {
@@ -58,35 +58,35 @@ export const getNotes = (propertyId) => async dispatch => {
 //   }
 // }
 
-// export const editProperty = (propertyId, payload) => async dispatch => {
-//   const res = await csrfFetch(`/api/properties/${propertyId}`, {
-//     method: "PUT",
-//     body: JSON.stringify({propertyId, payload})
-//   })
+export const editNote = (propertyId, payload) => async dispatch => {
+  const res = await csrfFetch(`/api/notes/${propertyId}`, {
+    method: "PUT",
+    body: JSON.stringify({propertyId, payload})
+  })
 
-//   const property = await res.json()
-//   if (property) {
+  const note = await res.json()
+  if (note) {
 
-//     dispatch(create(property))
-//   }
-//   return property
-// }
+    dispatch(create(note))
+  }
+  return note
+}
 
 // REDUCER
 const noteReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD:
-      const allProperties = {};
-      action.list.forEach(property => {
-        allProperties[property.id] = property;
+      const allNotes = {};
+      action.list.forEach(note => {
+        allNotes[note.id] = note;
       });
-      return allProperties
-    // case CREATE:
-    //   return {...state, [action.property.id]: action.property}
-    // case REMOVE:
-    //   const deleteState = {...state};
-    //   delete deleteState[action.property];
-    //   return deleteState;
+      return allNotes
+    case CREATE:
+      return {...state, [action.note.id]: action.note}
+    case REMOVE:
+      const deleteState = {...state};
+      delete deleteState[action.noteId];
+      return deleteState;
     default:
       return state;
   }

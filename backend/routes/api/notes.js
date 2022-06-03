@@ -14,25 +14,21 @@ router.get('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
     return res.json(notes)
 }))
 
-// router.post('/', requireAuth, asyncHandler(async (req, res, next) => {
-//     const {
-//         street,
-//         city,
-//         state,
-//         postal,
-//         userId
-//     } = req.body
-//     const property = await Property.build({
-//         street,
-//         city,
-//         state,
-//         postal,
-//         userId
-//     })
+router.post('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
+    const {
+        description,
+        body,
+        propertyId
+    } = req.body
+    const note = await Note.build({
+        description,
+        body,
+        propertyId
+    })
 
-//     const newProp = await property.save();
-//     return res.json(newProp)
-// }))
+    const newNote = await note.save();
+    return res.json(newNote)
+}))
 
 // router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
 //     const {
