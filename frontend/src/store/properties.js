@@ -1,8 +1,8 @@
 import { csrfFetch } from './csrf';
 
-const LOAD = '/LOAD';
-const CREATE = '/CREATE'
-const REMOVE = '/REMOVE'
+const LOAD = '/properties/LOAD';
+const CREATE = '/properties/CREATE'
+const REMOVE = '/properties/REMOVE'
 
 // ACTION CREATORS
 const load = list => ({

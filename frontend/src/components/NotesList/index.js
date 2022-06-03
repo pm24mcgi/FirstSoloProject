@@ -12,20 +12,20 @@ const PropertyList = ({propertyId}) => {
 
   console.log('notes ------>', notes)
 
-  useEffect(() => {
-    dispatch(getNotes(id));
-  }, [id]);
+  useEffect (() => {
+    dispatch(getNotes(id))
+  }, [id])
+  console.log(notes)
 
-  if (!notes) {
-    return null
-  } else {
-    {notes.map((note) => {
-      return (
-        <div>{note.body}</div>
-      )
-    })
-    }
-  }
+  return (
+    <>
+      {notes.length > 0 &&
+        notes.map((note) => { return (
+          <div>Property Description:{note.body}</div>
+        )
+      })}
+    </>
+  )
 }
 
 export default PropertyList;

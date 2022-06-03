@@ -1,6 +1,6 @@
 import { csrfFetch } from './csrf';
 
-const LOAD = '/LOAD';
+const LOAD = '/notes/LOAD';
 // const CREATE = '/CREATE'
 // const REMOVE = '/REMOVE'
 
