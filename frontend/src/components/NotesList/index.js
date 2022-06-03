@@ -19,15 +19,15 @@ const PropertyList = ({propertyId}) => {
 
   return (
     <>
+      <h2>Notes List</h2>
       {notes.length > 0 &&
         notes.map((note) => { return (
           <NoteDisplay note={note} />
-          // <div>Property Description:{note.description}
-          //   <div>Property Body:{note.body}</div>
-            // <button onClick={handleClick}>Edit Note</button>
-          // </div>
         )
       })}
+      {notes.length === 0 &&
+        <div>No notes have been added</div>
+      }
     </>
   )
 }
