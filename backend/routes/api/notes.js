@@ -14,20 +14,24 @@ router.get('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
     return res.json(notes)
 }))
 
-router.post('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
+router.put('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
     const {
+        id,
         description,
         body,
         propertyId
-    } = req.body
-    const note = await Note.build({
+    } = req.body.payload
+
+    const note = await Note.findByPk(id)
+
+    const editNote = await note.update({
+        id,
         description,
         body,
         propertyId
     })
 
-    const newNote = await note.save();
-    return res.json(newNote)
+    return res.json(editNote)
 }))
 
 // router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {

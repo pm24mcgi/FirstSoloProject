@@ -10,8 +10,8 @@ const EditProperty = ({propertyId}) => {
 
   const sessionUser = useSelector(state => state.session.user);
   const {id} = propertyId
-  const propObj = useSelector(state => state.properties)
-  const thisProp = propObj[id]
+  // const propObj = useSelector(state => state.properties)
+  // const thisProp = propObj[id]
 
   const dispatch = useDispatch();
   const history = useHistory();
