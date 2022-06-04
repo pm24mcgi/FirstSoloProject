@@ -8,21 +8,14 @@ import './Main.css';
 
 function Main({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory();
 
     let mainDisplay;
     if (sessionUser) {
+        history.push('/properties')
         mainDisplay = (
-          <>
-            <div className='MainDisplayDiv'>
-              <div className='MainDisplayDiv1'>
-                {/* <NewPropertyAdd />
-                <PropertyList /> */}
-              </div>
-              {/* <div className='MainDisplayDiv2'>2</div>
-                <PropertyDelete />
-              <div className='MainDisplayDiv3'>3</div> */}
-            </div>
-          </>
+            <>
+            </>
         );
       } else {
         mainDisplay = (
@@ -35,7 +28,6 @@ function Main({ isLoaded }){
             </div>
         );
       }
-
     return (
         <div>
             {!isLoaded && mainDisplay}

@@ -8,12 +8,18 @@ import './SoloProperty.css'
 
 const SoloProperty = () => {
   const allProperties = useSelector(state => state.properties)
+  const sessionUser = useSelector(state => state.session.user);
   const currentProperty = useParams().PropertyId
+  const history = useHistory();
   const currentPropertyDetail = allProperties[currentProperty]
   const street = currentPropertyDetail.street
   const city = currentPropertyDetail.city
   const state = currentPropertyDetail.state
   const postal = currentPropertyDetail.postal
+
+  if (!sessionUser) {
+    history.push('/')
+  }
 
   return (
     <div>
