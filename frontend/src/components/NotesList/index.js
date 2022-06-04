@@ -14,8 +14,7 @@ const PropertyList = ({propertyId}) => {
 
   useEffect (() => {
     dispatch(getNotes(id))
-  }, [id])
-  console.log(notes)
+  }, [dispatch, id])
 
   return (
     <>

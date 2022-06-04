@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const LOAD = '/notes/LOAD';
 const CREATE = '/notes/CREATE'
 const REMOVE = '/notes/REMOVE'
+const EDIT = '/notes/EDIT'
 
 // ACTION CREATORS
 const load = list => ({
@@ -15,16 +16,20 @@ const create = note => ({
   note
 });
 
-const remove = noteId => ({
+const remove = note => ({
   type: REMOVE,
-  noteId
+  note
 })
+
+const edit = note => ({
+  type: EDIT,
+  note
+});
 
 // "THUNK" ACTIONS CREATORS
 export const getNotes = (propertyId) => async dispatch => {
   const response = await csrfFetch(`/api/notes/${propertyId}`, {
         method: 'GET',
-        // body: JSON.stringify({propertyId})
       });
 
   if (response.ok) {
@@ -34,29 +39,16 @@ export const getNotes = (propertyId) => async dispatch => {
   }
 };
 
-// export const postProperites = (payload) => async dispatch => {
-//   const response = await csrfFetch(`/api/properties`, {
-//     method: 'POST',
-//     body: JSON.stringify(payload)
-//   });
-
-//   if (response.ok) {
-//     const detail = await response.json();
-//     dispatch(create(detail));
-//     return detail;
-//   }
-// }
-
-// export const deleteProperties = (propertyId) => async dispatch => {
-//   const response = await csrfFetch(`/api/properties/${propertyId}`, {
-//     method: 'DELETE',
-//     body: JSON.stringify({propertyId})
-//   })
-//   if (response.ok) {
-//     const property = await response.json();
-//     dispatch(remove(property.id));
-//   }
-// }
+export const deleteNote = (noteId) => async dispatch => {
+  const response = await csrfFetch(`/api/notes/${noteId}`, {
+    method: 'DELETE',
+    body: JSON.stringify({noteId})
+  })
+  if (response.ok) {
+    const note = await response.json();
+    dispatch(remove(note.id));
+  }
+}
 
 export const editNote = (propertyId, payload) => async dispatch => {
   const res = await csrfFetch(`/api/notes/${propertyId}`, {
@@ -66,8 +58,7 @@ export const editNote = (propertyId, payload) => async dispatch => {
 
   const note = await res.json()
   if (note) {
-
-    dispatch(create(note))
+    dispatch(edit(note))
   }
   return note
 }
@@ -82,6 +73,8 @@ const noteReducer = (state = {}, action) => {
       });
       return allNotes
     case CREATE:
+      return {...state, [action.note.id]: action.note}
+    case EDIT:
       return {...state, [action.note.id]: action.note}
     case REMOVE:
       const deleteState = {...state};

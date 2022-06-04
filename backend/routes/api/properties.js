@@ -108,11 +108,12 @@ router.put('/:id(\\d+)', requireAuth, validatePropertyEDIT, asyncHandler(async (
 
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
     const deleteProperty = await Property.findByPk(req.body.propertyId)
+    console.log(deleteProperty)
     if (deleteProperty) {
         await deleteProperty.destroy()
-        return res.json({id: req.body.propertyId, message: 'Successfully deleted'})
+        return res.json({id: req.body.propertyId, message: 'Successfully deleted property'})
     } else {
-        return res.json({id: req.body.propertyId, message: 'Failed to delete'})
+        return res.json({id: req.body.propertyId, message: 'Failed to delete property'})
     }
 }))
 
