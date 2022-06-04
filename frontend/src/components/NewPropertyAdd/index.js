@@ -39,7 +39,7 @@ const NewPropertyAdd = () => {
 
   return (
     <div>
-      <button  onClick={() => setAddOpen(!addOpen)}>Add New Property</button>
+      <button  onClick={() => setAddOpen(!addOpen)} className='AddNewPropButton'>+ Add New Property</button>
       { addOpen &&
       <form onSubmit={handleSubmit} className='AddPropertyForm'>
         <h3 id='property-create-header'>Add a Property</h3>

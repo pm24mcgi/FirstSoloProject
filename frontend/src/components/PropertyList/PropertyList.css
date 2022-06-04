@@ -24,9 +24,14 @@ nav {
 }
 
 .PropertyList.MainDiv {
+  position: absolute;
   overflow-y: scroll;
   margin-top: 20px;
-  height:68vh;
+  /* height:68vh; */
+  /* height: 85%; */
+  top: 5em;
+  bottom: 0;
+  z-index: 0;
 }
 
 .PropertyList.MainNav {

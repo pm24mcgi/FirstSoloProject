@@ -10,9 +10,9 @@ const { handleValidationErrors } = require('../../utils/validation');
 const validateProperty = [
     check('street')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide the street.')
+        .withMessage('Please provide the street. POSTTTTTTTTTTTTTT')
         .isLength({ max: 256 })
-        .withMessage('Street Name must not be more than 5 characters.'),
+        .withMessage('Street Name must not be more than 5 characters POSTTTTTT.'),
     check('city')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the city.')
@@ -36,9 +36,9 @@ const validateProperty = [
 const validatePropertyEDIT = [
     check('street')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide the street.')
+        .withMessage('Please provide the street EDITTTTTTTT.')
         .isLength({ max: 256 })
-        .withMessage('Street Name must not be more than 5 characters.'),
+        .withMessage('Street Name must not be more than 5 characters EDITTTTT.'),
     check('city')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the city.')
@@ -65,6 +65,7 @@ router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
 }))
 
 router.post('/', requireAuth, validateProperty, asyncHandler(async (req, res, next) => {
+    console.log('post route')
     const {
         street,
         city,
@@ -85,15 +86,17 @@ router.post('/', requireAuth, validateProperty, asyncHandler(async (req, res, ne
 }))
 
 router.put('/:id(\\d+)', requireAuth, validatePropertyEDIT, asyncHandler(async (req, res, next) => {
+    console.log('edit route')
     const {
+        id,
         street,
         city,
         state,
         postal,
         userId
-    } = req.body.payload
+    } = req.body
 
-    const property = await Property.findByPk(req.body.propertyId)
+    const property = await Property.findByPk(id)
 
     const editProperty = await property.update({
         street,

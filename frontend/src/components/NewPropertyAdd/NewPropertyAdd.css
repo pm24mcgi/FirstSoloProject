@@ -1,8 +1,5 @@
-.AddPropertyFormToggleHidden {
-  display: none;
-}
-
 .AddPropertyForm {
+  position: absolute;
   margin-top: 1em;
   display: flex;
   flex-direction: column;
@@ -10,6 +7,9 @@
   background-color: bisque;
   padding: 15px;
   border-radius: 5px;
+  top: 5.25em;
+  left: 1.5em;
+  z-index: 1;
 }
 
 .AddPropertyFormLvl1 {
@@ -26,4 +26,16 @@
   margin-top: 10px;
   border: 3px solid black;
   border-radius: 10px;
+}
+
+.AddNewPropButton {
+  margin: 7px;
+  padding: 3px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 4.25em;
+  left: 4.5em;
+  z-index: 0;
 }

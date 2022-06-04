@@ -61,10 +61,10 @@ export const deleteProperties = (propertyId) => async dispatch => {
   }
 }
 
-export const editProperty = (propertyId, payload) => async dispatch => {
-  const res = await csrfFetch(`/api/properties/${propertyId}`, {
+export const editProperty = (payload) => async dispatch => {
+  const res = await csrfFetch(`/api/properties/${payload.id}`, {
     method: "PUT",
-    body: JSON.stringify({propertyId, payload})
+    body: JSON.stringify(payload)
   })
 
   const property = await res.json()
