@@ -7,16 +7,28 @@ import './SoloProperty.css'
 
 
 const SoloProperty = () => {
+  const allProperties = useSelector(state => state.properties)
   const currentProperty = useParams().PropertyId
+  const currentPropertyDetail = allProperties[currentProperty]
+  const street = currentPropertyDetail.street
+  const city = currentPropertyDetail.city
+  const state = currentPropertyDetail.state
+  const postal = currentPropertyDetail.postal
 
   return (
     <div>
-      <PropertyDelete
-        propertyId={{id:currentProperty}}
-      />
-      <EditProperty
-        propertyId={{id:currentProperty}}
-      />
+      <h2>{street}, {city}, {state}, {postal}</h2>
+      <div className='PropertyEditContainer'>
+        <h3>Edit Property Information:</h3>
+        <div className='PropertyEdit'>
+          <EditProperty
+            propertyId={{id:currentProperty}}
+          />
+          <PropertyDelete
+            propertyId={{id:currentProperty}}
+          />
+        </div>
+      </div>
       <NotesList
         propertyId={{id:currentProperty}}
       />
