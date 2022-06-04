@@ -25,7 +25,7 @@ function LoginForm() {
 
   const handleDefaultButton = (e) => {
     e.preventDefault();
-    const credential = 'Demo-lition'
+    const credential = 'test'
     const password = 'password'
     return dispatch(sessionActions.login({ credential, password }))
         .then(() => history.push('/properties'))
