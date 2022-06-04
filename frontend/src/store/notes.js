@@ -78,7 +78,7 @@ const noteReducer = (state = {}, action) => {
       return {...state, [action.note.id]: action.note}
     case REMOVE:
       const deleteState = {...state};
-      delete deleteState[action.noteId];
+      delete deleteState[action.note];
       return deleteState;
     default:
       return state;
