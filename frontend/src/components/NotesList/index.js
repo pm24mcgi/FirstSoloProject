@@ -11,11 +11,12 @@ const PropertyList = ({propertyId}) => {
 
   const dispatch = useDispatch();
   const notes = Object.values(useSelector(state => state.notes))
+  console.log(notes.length)
+  const noteWatch = notes.length
 
   useEffect (() => {
     dispatch(getNotes(id))
-  }, [id])
-  console.log(notes)
+  }, [noteWatch, id])
 
   return (
     <>

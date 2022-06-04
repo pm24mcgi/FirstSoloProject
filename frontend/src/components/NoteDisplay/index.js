@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import EditNote from '../EditNote'
+import DeleteNote from '../DeleteNote'
 
 const NoteDisplay = ({note}) => {
 
@@ -9,6 +10,7 @@ const NoteDisplay = ({note}) => {
     <div>
       <div>{note.body}</div>
       <button onClick={() => setEditOpen(!editOpen)}>Edit Note</button>
+      <DeleteNote note={note}/>
       {editOpen && <EditNote note={note} setEditOpen={setEditOpen} />}
     </div>
   )

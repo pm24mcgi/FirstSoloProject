@@ -34,36 +34,21 @@ router.put('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
     return res.json(editNote)
 }))
 
-// router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
-//     const {
-//         street,
-//         city,
-//         state,
-//         postal,
-//         userId
-//     } = req.body.payload
+router.delete('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
+    console.log('1')
+    const deleteNote = await Note.findByPk(req.body.noteId)
+    console.log(req.body.noteId)
 
-//     const property = await Property.findByPk(req.body.propertyId)
 
-//     const editProperty = await property.update({
-//         street,
-//         city,
-//         state,
-//         postal,
-//         userId
-//     })
 
-//     res.json(editProperty)
-// }))
 
-// router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
-//     const deleteProperty = await Property.findByPk(req.body.propertyId)
-//     if (deleteProperty) {
-//         await deleteProperty.destroy()
-//         return res.json({id: req.body.propertyId, message: 'Successfully deleted'})
-//     } else {
-//         return res.json({id: req.body.propertyId, message: 'Failed to delete'})
-//     }
-// }))
+    if (deleteNote) {
+        console.log('2')
+        await deleteNote.destroy()
+        return res.json({id: req.body.noteId, message: 'Successfully deleted note'})
+    } else {
+        return res.json({id: req.body.noteId, message: 'Failed to delete note'})
+    }
+}))
 
 module.exports = router;
