@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from "react";
+import * as sessionActions from "../../store/session";
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';

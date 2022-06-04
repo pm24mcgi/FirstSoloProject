@@ -23,6 +23,20 @@ function LoginForm() {
       );
   };
 
+  const handleDefaultButton = (e) => {
+    e.preventDefault();
+    const credential = 'test'
+    const password = 'password'
+    return dispatch(sessionActions.login({ credential, password }))
+        .then(() => history.push('/properties'))
+        .catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
+}
+
   return (
     <form onSubmit={handleSubmit} className='LoginModalForm'>
       <ul>
@@ -51,6 +65,7 @@ function LoginForm() {
         />
       </label>
       <button type="submit" className='LoginModalFormInputLvl3'>Log In</button>
+      <button id='splash-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
     </form>
   );
 }
