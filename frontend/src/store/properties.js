@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const LOAD = '/properties/LOAD';
 const CREATE = '/properties/CREATE'
 const REMOVE = '/properties/REMOVE'
+const EDIT = '/properties/EDIT'
 
 // ACTION CREATORS
 const load = list => ({
@@ -19,6 +20,11 @@ const remove = property => ({
   type: REMOVE,
   property
 })
+
+const edit = property => ({
+  type: EDIT,
+  property
+});
 
 // "THUNK" ACTIONS CREATORS
 export const getProperites = () => async dispatch => {
@@ -64,7 +70,7 @@ export const editProperty = (propertyId, payload) => async dispatch => {
   const property = await res.json()
   if (property) {
 
-    dispatch(create(property))
+    dispatch(edit(property))
   }
   return property
 }
@@ -79,6 +85,8 @@ const propertyReducer = (state = {}, action) => {
       });
       return allProperties
     case CREATE:
+      return {...state, [action.property.id]: action.property}
+    case EDIT:
       return {...state, [action.property.id]: action.property}
     case REMOVE:
       const deleteState = {...state};

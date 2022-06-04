@@ -15,10 +15,11 @@ const EditProperty = ({propertyId}) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [postal, setPostal] = useState("");
+  const [streetEDIT, setStreetEDIT] = useState("");
+  const [cityEDIT, setCityEDIT] = useState("");
+  const [stateEDIT, setStateEDIT] = useState("");
+  const [postalEDIT, setPostalEDIT] = useState("");
+  const [errorsEDIT, setErrorsEDIT] = useState([]);
 
   // const [street, setStreet] = useState(thisProp.street || '');
   // const [city, setCity] = useState(thisProp.city || '');
@@ -40,25 +41,34 @@ const EditProperty = ({propertyId}) => {
 
     const payload = {
       id,
-      street,
-      city,
-      state,
-      postal,
+      streetEDIT,
+      cityEDIT,
+      stateEDIT,
+      postalEDIT,
       userId
     }
 
-    await dispatch(editProperty(id, payload))
+    dispatch(editProperty(id, payload))
         .then(() => history.push('/properties'))
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setErrorsEDIT(data.errors);
+        })
   };
 
   return (
     <form onSubmit={handleSubmit} className='EditPropertyForm'>
+      {errorsEDIT.length > 0 &&
+        <ul>
+            {errorsEDIT.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+      }
       <label  className='EditPropertyFormLvl1'>
         Street
         <input
           type="text"
-          value={street}
-          onChange={(e) => setStreet(e.target.value)}
+          value={streetEDIT}
+          onChange={(e) => setStreetEDIT(e.target.value)}
           required
           className='EditPropertyFormLvl2'
         />
@@ -67,8 +77,8 @@ const EditProperty = ({propertyId}) => {
         City
         <input
           type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          value={cityEDIT}
+          onChange={(e) => setCityEDIT(e.target.value)}
           required
           className='EditPropertyFormLvl2'
         />
@@ -77,8 +87,8 @@ const EditProperty = ({propertyId}) => {
         State
         <input
           type="text"
-          value={state}
-          onChange={(e) => setState(e.target.value)}
+          value={stateEDIT}
+          onChange={(e) => setStateEDIT(e.target.value)}
           required
           className='EditPropertyFormLvl2'
         />
@@ -87,8 +97,8 @@ const EditProperty = ({propertyId}) => {
         Postal
         <input
           type="text"
-          value={postal}
-          onChange={(e) => setPostal(e.target.value)}
+          value={postalEDIT}
+          onChange={(e) => setPostalEDIT(e.target.value)}
           required
           className='EditPropertyFormLvl2'
         />

@@ -13,6 +13,8 @@ const NewPropertyAdd = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [postal, setPostal] = useState('');
+  const [errors, setErrors] = useState([]);
+  const [addOpen, setAddOpen] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,20 +29,25 @@ const NewPropertyAdd = () => {
       userId
     }
 
-    let newProperty = await dispatch(postProperites(payload))
-      if (newProperty) {
-       return history.push('/')
-      }
-  };
-
-  const handleCancelClick = (e) => {
-    e.preventDefault();
-    e.className === 'AddPropertyFormToggleHidden' ? e.className='AddPropertyFormToggle' : e.className='AddPropertyFormToggleHidden'
+    dispatch(postProperites(payload))
+      .then(() => history.push('/properties'))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      })
   };
 
   return (
-    // <div onClick={handleCancelClick} className='AddPropertyFormToggle'>
+    <div>
+      <button  onClick={() => setAddOpen(!addOpen)}>Add New Property</button>
+      { addOpen &&
       <form onSubmit={handleSubmit} className='AddPropertyForm'>
+        <h3 id='property-create-header'>Add a Property</h3>
+          {errors.length > 0 &&
+            <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+          }
         <label  className='AddPropertyFormLvl1'>
           Street
           <input
@@ -81,9 +88,11 @@ const NewPropertyAdd = () => {
             className='AddPropertyFormLvl2'
           />
         </label>
-        <button type="submit" className='AddPropertyFormLvl3'>+ Add New Property</button>
+        <button type="submit" className='AddPropertyFormLvl3'>Submit</button>
+        <button onClick={() => setAddOpen(false)}>Cancel</button>
       </form>
-    // </div>
+      }
+    </div>
   );
 }
 
