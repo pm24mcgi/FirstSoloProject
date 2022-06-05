@@ -10,9 +10,27 @@ router.get('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
         where: {
             propertyId: req.params.propertyId
         }
-    })
-    return res.json(notes)
-}))
+    });
+    return res.json(notes);
+}));
+
+router.post('/' ,requireAuth, asyncHandler(async (req, res, next) => {
+    console.log('backend entry')
+    const {
+        description,
+        body,
+        propertyId
+    } = req.body;
+
+    const note = await Note.build({
+        description,
+        body,
+        propertyId
+    });
+
+    const newNote = await note.save();
+    return res.json(newNote);
+}));
 
 router.put('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
     const {
@@ -20,35 +38,30 @@ router.put('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
         description,
         body,
         propertyId
-    } = req.body.payload
+    } = req.body.payload;
 
-    const note = await Note.findByPk(id)
+    const note = await Note.findByPk(id);
 
     const editNote = await note.update({
         id,
         description,
         body,
         propertyId
-    })
+    });
 
-    return res.json(editNote)
-}))
+    return res.json(editNote);
+}));
 
 router.delete('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
-    console.log('1')
-    const deleteNote = await Note.findByPk(req.body.noteId)
-    console.log(req.body.noteId)
-
-
-
+    const deleteNote = await Note.findByPk(req.body.noteId);
+    console.log(req.body.noteId);
 
     if (deleteNote) {
-        console.log('2')
-        await deleteNote.destroy()
-        return res.json({id: req.body.noteId, message: 'Successfully deleted note'})
+        await deleteNote.destroy();
+        return res.json({id: req.body.noteId, message: 'Successfully deleted note'});
     } else {
-        return res.json({id: req.body.noteId, message: 'Failed to delete note'})
+        return res.json({id: req.body.noteId, message: 'Failed to delete note'});
     }
-}))
+}));
 
 module.exports = router;

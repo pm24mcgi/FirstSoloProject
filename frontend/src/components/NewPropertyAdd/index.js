@@ -35,62 +35,65 @@ const NewPropertyAdd = () => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       })
+    setAddOpen(!addOpen)
   };
 
   return (
     <div>
       <button  onClick={() => setAddOpen(!addOpen)} className='AddNewPropButton'>+ Add New Property</button>
       { addOpen &&
-      <form onSubmit={handleSubmit} className='AddPropertyForm'>
-        <h3 id='property-create-header'>Add a Property</h3>
-          {errors.length > 0 &&
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-          }
-        <label  className='AddPropertyFormLvl1'>
-          Street
-          <input
-            type="text"
-            value={street}
-            onChange={(e) => setStreet(e.target.value)}
-            required
-            className='AddPropertyFormLvl2'
-          />
-        </label>
-        <label  className='AddPropertyFormLvl1'>
-          City
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            required
-            className='AddPropertyFormLvl2'
-          />
-        </label>
-        <label  className='AddPropertyFormLvl1'>
-          State
-          <input
-            type="text"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            required
-            className='AddPropertyFormLvl2'
-          />
-        </label>
-        <label  className='AddPropertyFormLvl1'>
-          Postal
-          <input
-            type="text"
-            value={postal}
-            onChange={(e) => setPostal(e.target.value)}
-            required
-            className='AddPropertyFormLvl2'
-          />
-        </label>
-        <button type="submit" className='AddPropertyFormLvl3'>Submit</button>
+      <div className='AddPropertyForm'>
+        <form onSubmit={handleSubmit}>
+          <h3 id='property-create-header'>Add a Property</h3>
+            {errors.length > 0 &&
+              <ul>
+                  {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+              </ul>
+            }
+          <label  className='AddPropertyFormLvl1'>
+            Street
+            <input
+              type="text"
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
+              required
+              className='AddPropertyFormLvl2'
+            />
+          </label>
+          <label  className='AddPropertyFormLvl1'>
+            City
+            <input
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+              className='AddPropertyFormLvl2'
+            />
+          </label>
+          <label  className='AddPropertyFormLvl1'>
+            State
+            <input
+              type="text"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              required
+              className='AddPropertyFormLvl2'
+            />
+          </label>
+          <label  className='AddPropertyFormLvl1'>
+            Postal
+            <input
+              type="text"
+              value={postal}
+              onChange={(e) => setPostal(e.target.value)}
+              required
+              className='AddPropertyFormLvl2'
+            />
+          </label>
+          <button type="submit" className='AddPropertyFormLvl3'>Submit</button>
+        </form>
         <button onClick={() => setAddOpen(false)}>Cancel</button>
-      </form>
+      </div>
       }
     </div>
   );

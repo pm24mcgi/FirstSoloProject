@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 import { getNotes } from '../../store/notes'
-import EditProperty from '../EditProperty';
+import PostNote from '../NewNoteAdd';
 import NoteDisplay from '../NoteDisplay';
 import './NoteList.css';
 
 const PropertyList = ({propertyId}) => {
   const {id} = propertyId
+  const [addNoteOpen, setAddNoteOpen] = useState(false)
 
   const dispatch = useDispatch();
   const notes = Object.values(useSelector(state => state.notes))
@@ -20,9 +21,11 @@ const PropertyList = ({propertyId}) => {
   return (
     <>
       <h2>Notes List</h2>
+      <button onClick={() => setAddNoteOpen(!addNoteOpen)}>Add Note</button>
+      {addNoteOpen && <PostNote id={id} setAddNoteOpen={setAddNoteOpen} />}
       {notes.length > 0 &&
         notes.map((note) => { return (
-          <NoteDisplay note={note} />
+          <NoteDisplay key={note.id} note={note} />
         )
       })}
       {notes.length === 0 &&
