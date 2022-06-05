@@ -132,7 +132,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #07132b;
+    background-color: #548bfa;
     padding: 50px;
     border-radius: 5px;
 }
@@ -177,4 +177,33 @@
 
 .SplashTech {
     display: flex;
+}
+
+@media only screen and (max-width: 1550px) {
+    .SplashDiv1 {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #1E2430;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    height: 750px;
+    width: 100%;
+    justify-content: space-between;
+    }
+
+    .SplashAppPhoto1 {
+        background-image: url(../../../public/images/appImg.png);
+        height: 100px;
+        width: 700px;
+        height: 600px;
+        align-self: flex-end;
+        margin-right: 150px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top:450px
+    }
 }
