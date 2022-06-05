@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import {editNote} from '../../store/notes'
+import {postNote} from '../../store/notes';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
-import './EditNote.css';
+import './NewNoteAdd.css';
 
 
-const EditNote = ({note, setEditOpen}) => {
+const PostNote = ({id, setAddNoteOpen}) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const propertyId = note.propertyId;
-  const id = note.id;
+  const propertyId = id;
 
   const [description, setDescription] = useState('');
   const [body, setBody] = useState('');
@@ -18,44 +17,44 @@ const EditNote = ({note, setEditOpen}) => {
     e.preventDefault();
 
     const payload = {
-      id,
       description,
       body,
       propertyId
     };
-    await dispatch(editNote(id, payload))
+    await dispatch(postNote(payload))
         .then(() => history.push(`/properties/${propertyId}`))
-        .then(() => {setEditOpen(false)})
+
+    setAddNoteOpen(false);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit} className='EditPropertyForm'>
-        <label  className='EditPropertyFormLvl1'>
+      <form onSubmit={handleSubmit} className='PostPropertyForm'>
+        <label  className='PostPropertyFormLvl1'>
           Description
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
-            className='EditPropertyFormLvl2'
+            className='PostPropertyFormLvl2'
           />
         </label>
-        <label  className='EditPropertyFormLvl1'>
+        <label  className='PostPropertyFormLvl1'>
           Deatils
           <input
             type="text"
             value={body}
             onChange={(e) => setBody(e.target.value)}
             required
-            className='EditPropertyFormLvl2'
+            className='PostPropertyFormLvl2'
           />
         </label>
-        <button type="submit" className='EditPropertyFormLvl3'>Submit</button>
+        <button type="submit" className='PostPropertyFormLvl3'>Submit</button>
       </form>
-      <button onClick={() => {setEditOpen(false)}}>Cancel</button>
+      <button onClick={() => {setAddNoteOpen(false)}}>Cancel</button>
     </>
   );
 };
 
-export default EditNote;
+export default PostNote;

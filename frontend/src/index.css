@@ -14,12 +14,10 @@ html, body {
     left:0px;
 }
 
-.LandingNav {
-    background-color: brown;
-}
 
 .LandingNav {
-    width: fit-content;
+    background-color: brown;
+    min-width: 20em;
     height: 100%;
 }
 
@@ -31,7 +29,7 @@ html, body {
 
 .BottomLevelInternalContainer {
     display: flex;
-    width: auto;
+    flex-grow: 1;
     height: 90vh;
     background-color: bisque;
 }

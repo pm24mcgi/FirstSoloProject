@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
-const {requireAuth} = require('../../utils/auth')
+const {requireAuth} = require('../../utils/auth');
 const router = express.Router();
 const db = require('../../db/models');
 const { Property } = db;
@@ -12,7 +12,7 @@ const validateProperty = [
         .exists({ checkFalsy: true })
         .withMessage('Please provide the street.')
         .isLength({ max: 256 })
-        .withMessage('Street Name must not be more than 5 characters.'),
+        .withMessage('Street Name must not be more than 256 characters.'),
     check('city')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the city.')
@@ -38,7 +38,7 @@ const validatePropertyEDIT = [
         .exists({ checkFalsy: true })
         .withMessage('Please provide the street.')
         .isLength({ max: 256 })
-        .withMessage('Street Name must not be more than 5 characters.'),
+        .withMessage('Street Name must not be more than 256 characters.'),
     check('city')
         .exists({ checkFalsy: true })
         .withMessage('Please provide the city.')
@@ -60,9 +60,9 @@ const validatePropertyEDIT = [
 ];
 
 router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
-    const properties = await Property.findAll()
-    return res.json(properties)
-}))
+    const properties = await Property.findAll();
+    return res.json(properties);
+}));
 
 router.post('/', requireAuth, validateProperty, asyncHandler(async (req, res, next) => {
     const {
@@ -71,29 +71,31 @@ router.post('/', requireAuth, validateProperty, asyncHandler(async (req, res, ne
         state,
         postal,
         userId
-    } = req.body
+    } = req.body;
     const property = await Property.build({
         street,
         city,
         state,
         postal,
         userId
-    })
+    });
 
     const newProp = await property.save();
-    return res.json(newProp)
-}))
+    return res.json(newProp);
+}));
 
 router.put('/:id(\\d+)', requireAuth, validatePropertyEDIT, asyncHandler(async (req, res, next) => {
+    console.log('edit route')
     const {
+        id,
         street,
         city,
         state,
         postal,
         userId
-    } = req.body.payload
+    } = req.body;
 
-    const property = await Property.findByPk(req.body.propertyId)
+    const property = await Property.findByPk(id);
 
     const editProperty = await property.update({
         street,
@@ -101,19 +103,19 @@ router.put('/:id(\\d+)', requireAuth, validatePropertyEDIT, asyncHandler(async (
         state,
         postal,
         userId
-    })
+    });
 
-    res.json(editProperty)
-}))
+    res.json(editProperty);
+}));
 
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
-    const deleteProperty = await Property.findByPk(req.body.propertyId)
+    const deleteProperty = await Property.findByPk(req.body.propertyId);
     if (deleteProperty) {
-        await deleteProperty.destroy()
-        return res.json({id: req.body.propertyId, message: 'Successfully deleted property'})
+        await deleteProperty.destroy();
+        return res.json({id: req.body.propertyId, message: 'Successfully deleted property'});
     } else {
-        return res.json({id: req.body.propertyId, message: 'Failed to delete property'})
-    }
-}))
+        return res.json({id: req.body.propertyId, message: 'Failed to delete property'});
+    };
+}));
 
 module.exports = router;

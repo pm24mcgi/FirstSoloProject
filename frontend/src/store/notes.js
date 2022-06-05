@@ -1,9 +1,9 @@
 import { csrfFetch } from './csrf';
 
 const LOAD = '/notes/LOAD';
-const CREATE = '/notes/CREATE'
-const REMOVE = '/notes/REMOVE'
-const EDIT = '/notes/EDIT'
+const CREATE = '/notes/CREATE';
+const REMOVE = '/notes/REMOVE';
+const EDIT = '/notes/EDIT';
 
 // ACTION CREATORS
 const load = list => ({
@@ -19,7 +19,7 @@ const create = note => ({
 const remove = note => ({
   type: REMOVE,
   note
-})
+});
 
 const edit = note => ({
   type: EDIT,
@@ -35,33 +35,47 @@ export const getNotes = (propertyId) => async dispatch => {
   if (response.ok) {
     const noteList = await response.json();
     dispatch(load(noteList));
-    return noteList
-  }
+    return noteList;
+  };
+};
+
+export const postNote = (payload) => async dispatch => {
+  const response = await csrfFetch(`/api/notes/`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  });
+
+  if (response.ok) {
+    const detail = await response.json();
+    dispatch(create(detail));
+    return detail;
+  };
 };
 
 export const deleteNote = (noteId) => async dispatch => {
   const response = await csrfFetch(`/api/notes/${noteId}`, {
     method: 'DELETE',
     body: JSON.stringify({noteId})
-  })
+  });
+
   if (response.ok) {
     const note = await response.json();
     dispatch(remove(note.id));
-  }
-}
+  };
+};
 
 export const editNote = (propertyId, payload) => async dispatch => {
   const res = await csrfFetch(`/api/notes/${propertyId}`, {
     method: "PUT",
     body: JSON.stringify({propertyId, payload})
-  })
+  });
 
   const note = await res.json()
   if (note) {
-    dispatch(edit(note))
-  }
-  return note
-}
+    dispatch(edit(note));
+  };
+  return note;
+};
 
 // REDUCER
 const noteReducer = (state = {}, action) => {
@@ -82,7 +96,7 @@ const noteReducer = (state = {}, action) => {
       return deleteState;
     default:
       return state;
-  }
-}
+  };
+};
 
-  export default noteReducer;
+export default noteReducer;
