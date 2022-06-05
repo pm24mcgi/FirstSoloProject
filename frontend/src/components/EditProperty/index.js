@@ -10,28 +10,28 @@ const EditProperty = ({propertyId}) => {
 
   const sessionUser = useSelector(state => state.session.user);
   const {id} = propertyId
-  // const propObj = useSelector(state => state.properties)
-  // const thisProp = propObj[id]
+  const propertiesObject = useSelector(state => state.properties)
+  const thisProperty = propertiesObject[id]
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [postal, setPostal] = useState("");
+  // const [street, setStreet] = useState("");
+  // const [city, setCity] = useState("");
+  // const [state, setState] = useState("");
+  // const [postal, setPostal] = useState("");
   const [errors, setErrors] = useState([]);
 
-  // const [street, setStreet] = useState(thisProp.street || '');
-  // const [city, setCity] = useState(thisProp.city || '');
-  // const [state, setState] = useState(thisProp.state || '');
-  // const [postal, setPostal] = useState(thisProp.postal || '');
+  const [street, setStreet] = useState(thisProperty.street || '');
+  const [city, setCity] = useState(thisProperty.city || '');
+  const [state, setState] = useState(thisProperty.state || '');
+  const [postal, setPostal] = useState(thisProperty.postal || '');
 
-  // useEffect (() => {
-  //   setStreet(thisProp.street)
-  //   setCity(thisProp.city)
-  //   setState(thisProp.state)
-  //   setPostal(thisProp.postal)
-  // }, [id])
+  useEffect (() => {
+    setStreet(thisProperty.street)
+    setCity(thisProperty.city)
+    setState(thisProperty.state)
+    setPostal(thisProperty.postal)
+  }, [id])
 
 
   const handleSubmit = async (e) => {
@@ -49,7 +49,7 @@ const EditProperty = ({propertyId}) => {
     }
 
     dispatch(editProperty(payload))
-        .then(() => history.push('/properties'))
+        .then(() => history.push(`/properties/${id}`))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);

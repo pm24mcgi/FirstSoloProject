@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal'
-import PropertyList from '../PropertyList/index'
-import NewPropertyAdd from '../NewPropertyAdd/index'
+import PropertyList from '../GetProperty/index'
+import NewPropertyAdd from '../AddProperty/index'
 import './Navigation.css';
 
 function Navigation({ isLoaded }){

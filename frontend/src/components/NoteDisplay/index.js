@@ -1,13 +1,15 @@
 import {useState} from 'react'
 import EditNote from '../EditNote'
 import DeleteNote from '../DeleteNote'
+import './NoteDisplay.css'
 
 const NoteDisplay = ({note}) => {
 
   const [editOpen, setEditOpen] = useState(false)
 
   return (
-    <div>
+    <div className='NotesDisplayContainer'>
+      <div>{note.description}</div>
       <div>{note.body}</div>
       <button onClick={() => setEditOpen(!editOpen)}>Edit Note</button>
       <DeleteNote note={note}/>

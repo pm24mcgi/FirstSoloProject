@@ -11,8 +11,16 @@ const EditNote = ({note, setEditOpen}) => {
   const propertyId = note.propertyId;
   const id = note.id;
 
-  const [description, setDescription] = useState('');
-  const [body, setBody] = useState('');
+  const noteObject = useSelector(state => state.notes)
+  const thisNote = noteObject[id]
+
+  const [description, setDescription] = useState(thisNote.description || '');
+  const [body, setBody] = useState(thisNote.body || '');
+
+  useEffect (() => {
+    setDescription(thisNote.description)
+    setBody(thisNote.body)
+  }, [id])
 
   const handleSubmit = async (e) => {
     e.preventDefault();

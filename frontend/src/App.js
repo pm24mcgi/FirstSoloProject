@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, useHistory } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Main from './components/Main'
-import SoloProperty from "./components/SoloProperty";
+import Main from './components/Splash'
+import SoloProperty from "./components/PropertyDetail";
 
 function App() {
   const dispatch = useDispatch();
