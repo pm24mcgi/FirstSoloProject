@@ -1,22 +1,26 @@
-import {useJsApiLoader, GoogleMap} from '@react-google-maps/api'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGMapKey } from '../../store/maps';
+import Maps from './Maps';
 
-const Maps = () => {
-  const center = {lat: 48.8584, lng: 2.2945}
+const MapsRender = () => {
+  const key = useSelector((state) => state.maps.key);
+  console.log(key)
+  const dispatch = useDispatch();
 
-  const {isLoaded} = useJsApiLoader ({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-  });
+  useEffect(() => {
+    if (!key) {
+      dispatch(getGMapKey());
+    }
+  }, [dispatch, key]);
+
+  if (!key) {
+    return null;
+  }
 
   return (
-    <div>
-      {!isLoaded && <div>Map is loading...</div>}
-      {isLoaded &&
-        <GoogleMap center={center} zoom={15} className='Map'>
-          {/* display markers, directions */}
-        </GoogleMap>
-      }
-    </div>
+    <Maps key={key} />
   );
 };
 
-export default Maps;
+export default MapsRender;
