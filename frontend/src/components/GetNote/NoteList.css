@@ -1,0 +1,5 @@
+.NotesListContainer {
+  overflow-y: auto;
+
+  bottom: 0;
+}

@@ -19,19 +19,21 @@ const PropertyList = ({propertyId}) => {
   }, [noteWatch, id])
 
   return (
-    <>
-      <h2>Notes List</h2>
-      <button onClick={() => setAddNoteOpen(!addNoteOpen)}>Add Note</button>
+    <div className='GetNotesContainer'>
+      <h2 className='GetNotesHeader'>Notes List</h2>
+      <button onClick={() => setAddNoteOpen(!addNoteOpen)} className='AddNoteButton'>Add Note</button>
       {addNoteOpen && <PostNote id={id} setAddNoteOpen={setAddNoteOpen} />}
-      {notes.length > 0 &&
-        notes.map((note) => { return (
-          <NoteDisplay key={note.id} note={note} />
-        )
-      })}
-      {notes.length === 0 &&
-        <div>No notes have been added</div>
-      }
-    </>
+      <div className='NotesListContainer'>
+        {notes.length > 0 &&
+          notes.map((note) => { return (
+            <NoteDisplay key={note.id} note={note} />
+          )
+        })}
+        {notes.length === 0 &&
+          <div>No notes have been added</div>
+        }
+      </div>
+    </div>
   )
 }
 

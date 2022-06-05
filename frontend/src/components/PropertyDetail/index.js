@@ -25,7 +25,7 @@ const SoloProperty = () => {
   return (
     <div className='SoloPropContainer'>
       <div className='Container1'>
-        <h2>{street}, {city}, {state}, {postal}</h2>
+        <h2 className='PropertyDescriptionContainer'>{street}, {city}, {state}, {postal}</h2>
         <div className='PropertyEditContainer'>
           <h3>Edit Property Information:</h3>
           <div className='PropertyEdit'>

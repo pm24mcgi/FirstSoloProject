@@ -29,28 +29,28 @@ const PostNote = ({id, setAddNoteOpen}) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className='PostPropertyForm'>
-        <label  className='PostPropertyFormLvl1'>
+      <form onSubmit={handleSubmit} className='PostNoteForm'>
+        <label  className='PostNoteFormLvl1'>
           Description
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
-            className='PostPropertyFormLvl2'
+            className='PostNoteFormLvl2'
           />
         </label>
-        <label  className='PostPropertyFormLvl1'>
+        <label  className='PostNoteFormLvl1'>
           Deatils
           <input
             type="text"
             value={body}
             onChange={(e) => setBody(e.target.value)}
             required
-            className='PostPropertyFormLvl2'
+            className='PostNoteFormLvl2'
           />
         </label>
-        <button type="submit" className='PostPropertyFormLvl3'>Submit</button>
+        <button type="submit" className='PostNoteFormLvl3'>Submit</button>
       </form>
       <button onClick={() => {setAddNoteOpen(false)}}>Cancel</button>
     </>

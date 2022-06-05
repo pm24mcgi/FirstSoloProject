@@ -14,14 +14,49 @@
 }
 
 .SoloPropContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Container1 Container1 Container2"
+    "Container1 Container1 Container2"
+    "Container1 Container1 Container2";
 }
 
+.SoloPropContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Container1 Container2";
+}
 .Container1 {
-  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 0.4fr 2.4fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "PropertyDescriptionContainer"
+    "PropertyEditContainer"
+    "GetNotesContainer";
+  grid-area: Container1;
 }
 
 .Container2 {
-  width: 400px;
-  background-color: black;
+  grid-area: Container2;
+}
+
+.PropertyDescriptionContainer {
+  grid-area: PropertyDescriptionContainer;
+}
+
+.PropertyEditContainer {
+  grid-area: PropertyEditContainer;
+}
+
+.GetNotesContainer {
+  grid-area: GetNotesContainer;
 }
