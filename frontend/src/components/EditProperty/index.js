@@ -33,6 +33,10 @@ const EditProperty = ({propertyId}) => {
     setPostal(thisProperty.postal)
   }, [id])
 
+  // useEffect(() => {
+  //   setErrors(data.errors)
+  // }, [dispatch])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,11 +53,11 @@ const EditProperty = ({propertyId}) => {
     }
 
     dispatch(editProperty(payload))
-        .then(() => history.push(`/properties/${id}`))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        })
+      .then(() => history.push(`/properties/${id}`))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      })
   };
 
   return (
