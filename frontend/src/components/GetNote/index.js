@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 import { getNotes } from '../../store/notes'
-import PostNote from '../NewNoteAdd';
+import PostNote from '../AddNote';
 import NoteDisplay from '../NoteDisplay';
 import './NoteList.css';
 
