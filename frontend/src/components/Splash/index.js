@@ -51,13 +51,26 @@ function Main({ isLoaded }){
                     </div>
                 </div>
                 <div className='SplashDiv3'>
-                    <div></div>
-                    <button onClick={() => setShowModal(true)} className='LandingNavBtn'>Sign Up</button>
-                        {showModal && (
-                            <Modal onClose={() => setShowModal(false)}>
-                            <SignupForm />
-                            </Modal>
-                        )}
+                    <div className='SplashDiv3Container'>
+                        <div className='SplashDiv3Title'>See what R.E.mind can do for you</div>
+                        <div className='SplashDiv3Text'>Sign up and take your business to the next level today</div>
+                        <button onClick={() => setShowModal(true)} className='SignUpCTA'>Sign Up</button>
+                            {showModal && (
+                                <Modal onClose={() => setShowModal(false)}>
+                                <SignupForm />
+                                </Modal>
+                            )}
+                    </div>
+                </div>
+                <div className='SplashFooter'>
+                    <div>@ 2022 R.E.mind</div>
+                    <a className='SplashFooterLink' href='https://github.com/pm24mcgi/R.E.mind'>GitHub Repo: pm24mcgi/R.E.mind</a>
+                    <div className='SplashTech'>
+                        <a className='SplashFooterLink' href='https://reactjs.org/'>| React.js |</a>
+                        <a className='SplashFooterLink' href='https://redux.js.org/'>| Redux |</a>
+                        <a className='SplashFooterLink' href='https://expressjs.com/'>| Express |</a>
+                        <a className='SplashFooterLink' href='https://www.javascript.com/'>| JavaScript |</a>
+                    </div>
                 </div>
             </div>
         );
