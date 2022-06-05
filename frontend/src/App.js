@@ -40,9 +40,6 @@ function App() {
             </Switch>
           )}
         </div>
-        <div>Footer:
-          <div>Cool Stuff Here</div>
-        </div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ function LoginForm() {
                 if (data && data.errors) setErrors(data.errors);
             }
         );
-}
+  }
 
   return (
     <form onSubmit={handleSubmit} className='LoginModalForm'>
@@ -65,7 +65,7 @@ function LoginForm() {
         />
       </label>
       <button type="submit" className='LoginModalFormInputLvl3'>Log In</button>
-      <button id='splash-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
+      <button  className='LoginModalFormInputLvl3'id='splash-login-button' onClick={(e) => handleDefaultButton(e)}>Log In With Demo User</button>
     </form>
   );
 }

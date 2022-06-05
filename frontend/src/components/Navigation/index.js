@@ -15,34 +15,41 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <div className='Properties Nav'>
-        <div className="PropertiesNav Internal">
-          <NavLink exact to="/properties" className='HomeBtn'>Home</NavLink>
-          <ProfileButton user={sessionUser} />
+      <nav className="LandingNav">
+        <div className="MainNav">
+          <div className='Properties Nav'>
+            <div className="PropertiesNav Internal">
+              <NavLink exact to="/properties" className='HomeBtn'>Home</NavLink>
+              <ProfileButton user={sessionUser} />
+            </div>
+              <NewPropertyAdd />
+              <PropertyList />
+          </div>
         </div>
-          <NewPropertyAdd />
-          <PropertyList />
-      </div>
+      </nav>
     );
   } else {
     sessionLinks = (
-      <div className='ModalBtns'>
-        <div className='SignupFormModal'>
-          <SignupFormModal />
-        </div>
-        <div className='LoginFormModal'>
-          <LoginFormModal className='LoginFormModal'/>
+      <div className="SpashPageNav">
+        <div className='ModalBtns'>
+          <div className="SpashPageNavLogo"></div>
+          <div className="SignupLoginBtns">
+            <div className='SignupFormModal'>
+              <SignupFormModal />
+            </div>
+            <div className='LoginFormModal'>
+              <LoginFormModal className='LoginFormModal'/>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <nav className='LandingNav'>
-      <div className='MainNav'>
-        {isLoaded && sessionLinks}
-      </div>
-    </nav>
+    <>
+      {isLoaded && sessionLinks}
+    </>
   );
 }
 

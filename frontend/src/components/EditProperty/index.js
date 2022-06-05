@@ -7,7 +7,6 @@ import './EditProperty.css'
 
 const EditProperty = ({propertyId}) => {
 
-
   const sessionUser = useSelector(state => state.session.user);
   const {id} = propertyId
   const propertiesObject = useSelector(state => state.properties)
@@ -33,13 +32,10 @@ const EditProperty = ({propertyId}) => {
     setPostal(thisProperty.postal)
   }, [id])
 
-  // useEffect(() => {
-  //   setErrors(data.errors)
-  // }, [dispatch])
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setErrors([])
 
     const userId = sessionUser.id
 
