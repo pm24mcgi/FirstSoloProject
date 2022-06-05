@@ -3,6 +3,7 @@ import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 import PropertyDelete from '../DeleteProperty';
 import EditProperty from '../EditProperty';
 import NotesList from '../NotesList'
+import Maps from '../Maps'
 import './SoloProperty.css'
 
 
@@ -22,22 +23,27 @@ const SoloProperty = () => {
   }
 
   return (
-    <div>
-      <h2>{street}, {city}, {state}, {postal}</h2>
-      <div className='PropertyEditContainer'>
-        <h3>Edit Property Information:</h3>
-        <div className='PropertyEdit'>
-          <EditProperty
-            propertyId={{id:currentProperty}}
-          />
-          <PropertyDelete
-            propertyId={{id:currentProperty}}
-          />
+    <div className='SoloPropContainer'>
+      <div className='Container1'>
+        <h2>{street}, {city}, {state}, {postal}</h2>
+        <div className='PropertyEditContainer'>
+          <h3>Edit Property Information:</h3>
+          <div className='PropertyEdit'>
+            <EditProperty
+              propertyId={{id:currentProperty}}
+            />
+            <PropertyDelete
+              propertyId={{id:currentProperty}}
+            />
+          </div>
         </div>
+        <NotesList
+          propertyId={{id:currentProperty}}
+        />
       </div>
-      <NotesList
-        propertyId={{id:currentProperty}}
-      />
+      <div className='Container2'>
+        <Maps />
+      </div>
     </div>
   )
 };

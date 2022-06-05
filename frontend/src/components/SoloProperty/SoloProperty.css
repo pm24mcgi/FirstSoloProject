@@ -12,3 +12,16 @@
 .PropertyEdit {
   display: flex;
 }
+
+.SoloPropContainer {
+  display: flex;
+}
+
+.Container1 {
+  flex-grow: 1;
+}
+
+.Container2 {
+  width: 400px;
+  background-color: black;
+}
