@@ -16,12 +16,19 @@ const NewPropertyAdd = () => {
   const [errors, setErrors] = useState([]);
   const [addOpen, setAddOpen] = useState(false)
 
+  useEffect (() => {
+    setErrors([])
+  }, [state])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const userId = sessionUser.id
 
+    const re = /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/
 
+    if (re.test(state)) {
+
+    setErrors([])
 
     const payload = {
       street,
@@ -32,13 +39,17 @@ const NewPropertyAdd = () => {
     }
 
     dispatch(postProperites(payload))
-      .then(() => history.push('/properties'))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       })
 
       setAddOpen(!addOpen);
+    }
+
+    return setErrors(['Valid 2 letter state abbreviations only.'])
+
+
   };
 
   return (
