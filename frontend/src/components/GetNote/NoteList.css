@@ -1,0 +1,35 @@
+.GetNotesContainer {
+  position: absolute;
+  overflow-y: auto;
+  margin-top: 20px;
+  top: 11em;
+  left: 20em;
+  right: 27em;
+  bottom: 0;
+  z-index: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.GetNotesHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.GetNotesHeader {
+  margin-right: 20px;
+}
+
+.AddNoteButton {
+  background-color: #1E2430;
+  color: white;
+  border-radius: 10px;
+}
+
+.NotesListContainer {
+  padding-left: 20px;
+  padding-right: 20px;
+}

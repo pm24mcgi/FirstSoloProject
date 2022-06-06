@@ -1,3 +1,23 @@
 .NotesDisplayContainer {
-  max-width: fit-content;
+  border-top: .5px solid #1E2430;
+  border-bottom: .5px solid #1E2430;
+  background-color: #f0f0f0;
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NoteDesctiption {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.NoteDetailBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.NoteDetailBtn {
+  margin-left: 10px;
+  margin-right: 10px;
 }

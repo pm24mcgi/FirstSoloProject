@@ -9,10 +9,14 @@ const NoteDisplay = ({note}) => {
 
   return (
     <div className='NotesDisplayContainer'>
-      <div>{note.description}</div>
-      <div>{note.body}</div>
-      <button onClick={() => setEditOpen(!editOpen)}>Edit Note</button>
-      <DeleteNote note={note}/>
+      <div className='NoteText'>
+        <div className='NoteDesctiption'>{note.description}</div>
+        <div>{note.body}</div>
+      </div>
+      <div className='NoteDetailBtns'>
+        <button className='NoteDetailBtn' onClick={() => setEditOpen(!editOpen)}>Edit Note</button>
+        <DeleteNote note={note}/>
+      </div>
       {editOpen && <EditNote note={note} setEditOpen={setEditOpen} />}
     </div>
   )

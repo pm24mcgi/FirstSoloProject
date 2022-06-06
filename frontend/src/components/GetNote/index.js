@@ -20,8 +20,10 @@ const PropertyList = ({propertyId}) => {
 
   return (
     <div className='GetNotesContainer'>
-      <h2 className='GetNotesHeader'>Notes List</h2>
-      <button onClick={() => setAddNoteOpen(!addNoteOpen)} className='AddNoteButton'>Add Note</button>
+      <div className='GetNotesHeaderContainer'>
+        <h2 className='GetNotesHeader'>Notes:</h2>
+        <button onClick={() => setAddNoteOpen(!addNoteOpen)} className='AddNoteButton'>+ Add Note</button>
+      </div>
       {addNoteOpen && <PostNote id={id} setAddNoteOpen={setAddNoteOpen} />}
       <div className='NotesListContainer'>
         {notes.length > 0 &&

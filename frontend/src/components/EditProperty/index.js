@@ -14,10 +14,6 @@ const EditProperty = ({propertyId}) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  // const [street, setStreet] = useState("");
-  // const [city, setCity] = useState("");
-  // const [state, setState] = useState("");
-  // const [postal, setPostal] = useState("");
   const [errors, setErrors] = useState([]);
 
   const [street, setStreet] = useState(thisProperty.street || '');
