@@ -18,7 +18,7 @@ const DeleteNote = ({note}) => {
 
   return (
     <button onClick={handleDelete}>
-      Delete Note
+      Delete
     </button>
   )
 };

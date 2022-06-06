@@ -99,7 +99,7 @@ const EditProperty = ({propertyId}) => {
           className='EditPropertyFormLvl2'
         />
       </label>
-      <button type="submit" className='EditPropertyFormLvl3'>Edit Property</button>
+      <button type="submit" className='EditPropertyFormLvl3'>Edit</button>
     </form>
   );
 }

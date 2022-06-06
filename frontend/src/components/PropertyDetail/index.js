@@ -25,16 +25,17 @@ const SoloProperty = () => {
   return (
     <div className='SoloPropContainer'>
       <div className='Container1'>
-        <h2 className='PropertyDescriptionContainer'>{street}, {city}, {state}, {postal}</h2>
         <div className='PropertyEditContainer'>
-          <h3>Edit Property Information:</h3>
-          <div className='PropertyEdit'>
-            <EditProperty
-              propertyId={{id:currentProperty}}
-            />
-            <PropertyDelete
-              propertyId={{id:currentProperty}}
-            />
+          <h3 className='PropertyEditDetail'>Property Detail:</h3>
+          <div className='PropEditDeleteBtns'>
+            <div className='PropertyEdit'>
+              <EditProperty
+                propertyId={{id:currentProperty}}
+              />
+              <PropertyDelete
+                propertyId={{id:currentProperty}}
+              />
+            </div>
           </div>
         </div>
         <NotesList
@@ -43,6 +44,9 @@ const SoloProperty = () => {
       </div>
       <div className='Container2'>
         <MapsRender />
+        <h3 className='Container2Address'>Address:
+          <div>{street}, {city}, {state}, {postal}</div>
+        </h3>
       </div>
     </div>
   )

@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
-  background-color: grey;
+  background-color: rgb(255, 255, 255);
   padding: 15px;
+  padding-top: 5px;
   font-weight: bold;
 }
 
@@ -39,30 +39,40 @@
   position: inherit;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr 0.4fr 2.4fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "PropertyDescriptionContainer"
-    "PropertyEditContainer"
-    "GetNotesContainer";
   grid-area: Container1;
   height: 100%;
   max-height: 100%;
 }
 
 .Container2 {
+  position: absolute;
+  right: 0;
+  width: 400px;
   grid-area: Container2;
   height: 100%;
-}
-
-.PropertyDescriptionContainer {
-  grid-area: PropertyDescriptionContainer;
+  background-color: #1E2430;
 }
 
 .PropertyEditContainer {
-  grid-area: PropertyEditContainer;
+  position: absolute;
+  padding-left: 20px;
+  padding-right: 20px;
+  top:0;
+  left: 20em;
+  right: 27em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .GetNotesContainer {
   grid-area: GetNotesContainer;
+}
+
+.Container2Address {
+  padding-top: 15px;
+  padding-left: 15px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }

@@ -28,7 +28,7 @@ const PostNote = ({id, setAddNoteOpen}) => {
   };
 
   return (
-    <>
+    <div className='PostNoteFormContainer'>
       <form onSubmit={handleSubmit} className='PostNoteForm'>
         <label  className='PostNoteFormLvl1'>
           Description
@@ -42,18 +42,18 @@ const PostNote = ({id, setAddNoteOpen}) => {
         </label>
         <label  className='PostNoteFormLvl1'>
           Deatils
-          <input
+          <textarea
             type="text"
             value={body}
             onChange={(e) => setBody(e.target.value)}
             required
-            className='PostNoteFormLvl2'
+            className='PostNoteFormLvl2 Details'
           />
         </label>
         <button type="submit" className='PostNoteFormLvl3'>Submit</button>
+        <button className='PostNoteFormLvl3 C' onClick={() => {setAddNoteOpen(false)}}>Cancel</button>
       </form>
-      <button onClick={() => {setAddNoteOpen(false)}}>Cancel</button>
-    </>
+    </div>
   );
 };
 

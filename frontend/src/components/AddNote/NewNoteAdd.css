@@ -1,0 +1,35 @@
+.PostNoteFormContainer {
+  background-color: white;
+  margin-left: 5px;
+  position: absolute;
+  padding: 20px;
+  top: 1em;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  border: 5px solid black;
+  font-size: 18px;
+  font-weight: 10px;
+}
+
+.PostNoteFormLvl1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.PostNoteFormLvl2.Details {
+  height: 20em;
+}
+
+textarea {
+  width: 100%;
+}
+
+.PostNoteFormLvl3 {
+  margin: 10px;
+  height: 30px;
+  background-color: #1E2430;
+  color: white;
+  border-radius: 10px;
+}

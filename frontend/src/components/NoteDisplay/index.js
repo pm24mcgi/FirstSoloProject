@@ -14,7 +14,7 @@ const NoteDisplay = ({note}) => {
         <div>{note.body}</div>
       </div>
       <div className='NoteDetailBtns'>
-        <button className='NoteDetailBtn' onClick={() => setEditOpen(!editOpen)}>Edit Note</button>
+        <button className='NoteDetailBtn' onClick={() => setEditOpen(!editOpen)}>Edit</button>
         <DeleteNote note={note}/>
       </div>
       {editOpen && <EditNote note={note} setEditOpen={setEditOpen} />}

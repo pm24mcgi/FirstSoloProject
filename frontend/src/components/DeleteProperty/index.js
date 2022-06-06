@@ -17,8 +17,8 @@ const PropertyDelete = ({propertyId}) => {
   };
 
   return (
-    <button onClick={handleDelete}>
-      Delete Property
+    <button className='EditPropertyFormLvl3' onClick={handleDelete}>
+      Delete
     </button>
   )
 };
