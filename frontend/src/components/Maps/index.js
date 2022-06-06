@@ -12,7 +12,6 @@ const MapsRender = () => {
     if (!key) {
       dispatch(getGMapKey());
     }
-    console.log('Index.js ---->', key)
   }, [dispatch, key]);
 
   if (!key) {
