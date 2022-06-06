@@ -33,3 +33,7 @@ html, body {
     flex-grow: 1;
     height: 90vh;
 }
+
+button {
+    cursor:pointer
+}
