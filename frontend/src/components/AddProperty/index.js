@@ -31,11 +31,12 @@ const NewPropertyAdd = () => {
 
     dispatch(postProperites(payload))
       .then(() => history.push('/properties'))
+      .then(setAddOpen(!addOpen))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       })
-    setAddOpen(!addOpen)
+
   };
 
   return (
