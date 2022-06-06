@@ -6,6 +6,7 @@
 .EditPropertyForm {
   display: flex;
   align-items: center;
+  z-index: 3;
 }
 
 .EditPropertyFormLvl1 {
