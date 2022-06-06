@@ -30,12 +30,12 @@ function Main({ isLoaded }){
                     <div className='CompBlock'>
                         <div className='CompBlockImg One'></div>
                         <div className='CompBlockTitle 1'>Multi-family</div>
-                        <div className='CompBlockText 1'>Streamlined processes and smart automation free your team to focus on delivering an outstanding resident experience.</div>
+                        <div className='CompBlockText 1'>From maintenance to accounting operations, with R.E.mind your team can do anything from anywhere in a fully digital environment.</div>
                     </div>
                     <div className='CompBlock'>
                         <div className='CompBlockImg Two'></div>
                         <div className='CompBlockTitle 2'>Single-family</div>
-                        <div className='CompBlockText 2'>From maintenance to accounting operations, with R.E.mind your team can do anything from anywhere in a fully digital environment.
+                        <div className='CompBlockText 2'>Streamlined processes and smart automation free your team to focus on delivering an outstanding resident experience.
                     </div>
                     </div>
                     <div className='CompBlock'>
