@@ -59,7 +59,7 @@ const EditProperty = ({propertyId}) => {
   return (
     <form onSubmit={handleSubmit} className='EditPropertyForm'>
       {errors.length > 0 &&
-        <ul>
+        <ul  className='ErrorList'>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
       }

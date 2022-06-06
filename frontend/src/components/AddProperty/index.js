@@ -43,10 +43,10 @@ const NewPropertyAdd = () => {
       <button  onClick={() => setAddOpen(!addOpen)} className='AddNewPropButton'>+ Add New Property</button>
       { addOpen &&
       <div className='AddPropertyForm'>
-        <form onSubmit={handleSubmit}>
-          <h3 id='property-create-header'>Add a Property</h3>
+        <h3 id='property-create-header'>Add New Property:</h3>
+        <form className='AddPropertyFormInner' onSubmit={handleSubmit}>
             {errors.length > 0 &&
-              <ul>
+              <ul  className='ErrorList'>
                   {errors.map((error, idx) => <li key={idx}>{error}</li>)}
               </ul>
             }
@@ -90,9 +90,9 @@ const NewPropertyAdd = () => {
               className='AddPropertyFormLvl2'
             />
           </label>
-          <button type="submit" className='AddPropertyFormLvl3'>Submit</button>
+          <button type="submit" className='AddPropertyFormLvl3'>+ Add</button>
         </form>
-        <button onClick={() => setAddOpen(false)}>Cancel</button>
+        <button className='AddPropertyFormLvl3' onClick={() => setAddOpen(false)}>Cancel</button>
       </div>
       }
     </div>

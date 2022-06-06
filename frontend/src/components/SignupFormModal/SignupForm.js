@@ -29,7 +29,7 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit} className='SignupModalForm'>
-      <ul>
+      <ul className='ErrorList'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <label  className='SignupModalFormInputLvl1'>

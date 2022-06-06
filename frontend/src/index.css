@@ -15,12 +15,6 @@ html, body {
     left:0px;
 }
 
-
-.LandingNav {
-    min-width: 20em;
-    height: 100%;
-}
-
 .TopLevelInternalContainer {
     display: flex;
     flex-grow: 1;
@@ -36,4 +30,8 @@ html, body {
 
 button {
     cursor:pointer
+}
+
+.ErrorList {
+    color: red;
 }

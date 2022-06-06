@@ -34,7 +34,6 @@ function App() {
               </Route>
               <Route exact path='/properties'>
                 <div>
-                  TEST
                   <MapsRender />
                 </div>
               </Route>
