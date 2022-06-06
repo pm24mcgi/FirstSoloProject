@@ -5,14 +5,14 @@ import Maps from './Maps';
 import './Maps.css'
 
 const MapsRender = () => {
-  const key = useSelector((state) => state.maps.key);
-  console.log(key)
+  const key = useSelector((state) => state.maps.googleAPIKey);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (!key) {
       dispatch(getGMapKey());
     }
+    console.log('Index.js ---->', key)
   }, [dispatch, key]);
 
   if (!key) {
@@ -20,7 +20,7 @@ const MapsRender = () => {
   }
 
   return (
-    <Maps key={key} />
+    <Maps GMapKey={key} />
   );
 };
 

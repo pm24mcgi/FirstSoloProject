@@ -3,10 +3,13 @@ import { csrfFetch } from './csrf';
 const LOAD = 'maps/LOAD';
 
 // ACTION CREATORS
-const load = key => ({
-  type: LOAD,
-  key,
-});
+const load = key => {
+  return ({
+    type: LOAD,
+    key,
+  })
+
+};
 
 // "THUNK" ACTIONS CREATORS
 export const getGMapKey = () => async (dispatch) => {
@@ -21,7 +24,7 @@ export const getGMapKey = () => async (dispatch) => {
 const mapsReducer = (state = { key: null }, action) => {
   switch (action.type) {
     case LOAD:
-      return { googleAPIKey: action.payload };
+      return { googleAPIKey: action.key };
     default:
       return state;
   }
