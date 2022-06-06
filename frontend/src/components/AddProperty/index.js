@@ -18,15 +18,17 @@ const NewPropertyAdd = () => {
 
   useEffect (() => {
     setErrors([])
-  }, [state])
+  }, [state, postal])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userId = sessionUser.id
 
-    const re = /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/
+    const regExState = /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/
 
-    if (re.test(state)) {
+    const regExPostal = /^\d{5}$/
+
+    if (regExState.test(state) && regExPostal.test(postal)) {
 
     setErrors([])
 
@@ -47,7 +49,14 @@ const NewPropertyAdd = () => {
       setAddOpen(!addOpen);
     }
 
-    return setErrors(['Valid 2 letter state abbreviations only.'])
+
+   if (regExState.test(state) === false) {
+     return setErrors(['Valid 2 letter state abbreviations only.'])
+   }
+
+   if (regExPostal.test(postal) === false) {
+    return setErrors(['Postal code must be 5 digits.'])
+   }
 
 
   };
