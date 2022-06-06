@@ -3,7 +3,7 @@ import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 import PropertyDelete from '../DeleteProperty';
 import EditProperty from '../EditProperty';
 import NotesList from '../GetNote'
-import MapRender from '../Maps/index'
+import MapsRender from '../Maps'
 import './PropertyDetail.css'
 
 
@@ -42,7 +42,7 @@ const SoloProperty = () => {
         />
       </div>
       <div className='Container2'>
-        <MapRender />
+        <MapsRender />
       </div>
     </div>
   )

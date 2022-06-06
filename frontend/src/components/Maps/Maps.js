@@ -1,6 +1,6 @@
 import React from 'react';
 import {useJsApiLoader, GoogleMap} from '@react-google-maps/api'
-import './Maps.css'
+
 
 const Maps = ({key}) => {
 
