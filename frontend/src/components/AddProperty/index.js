@@ -21,6 +21,8 @@ const NewPropertyAdd = () => {
 
     const userId = sessionUser.id
 
+
+
     const payload = {
       street,
       city,
@@ -31,12 +33,12 @@ const NewPropertyAdd = () => {
 
     dispatch(postProperites(payload))
       .then(() => history.push('/properties'))
-      .then(setAddOpen(!addOpen))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       })
 
+      setAddOpen(!addOpen);
   };
 
   return (
@@ -45,7 +47,7 @@ const NewPropertyAdd = () => {
       { addOpen &&
       <div className='AddPropertyForm'>
         <h3 id='property-create-header'>Add New Property:</h3>
-        <form className='AddPropertyFormInner' onSubmit={handleSubmit}>
+        <form autocomplete="off" className='AddPropertyFormInner' onSubmit={handleSubmit}>
             {errors.length > 0 &&
               <ul  className='ErrorList'>
                   {errors.map((error, idx) => <li key={idx}>{error}</li>)}

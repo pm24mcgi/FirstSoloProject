@@ -5,6 +5,17 @@ We can all be a little forgetful at times. Remind yourself of the important Real
 
 <p align="center"><a  href="https://r-e-mind.herokuapp.com/">R.E.mind Live Demo</a></p>
 
+# Screenshots
+
+## Splash Page
+![splash1](https://user-images.githubusercontent.com/99216796/172123621-f2e5da7c-ec12-426c-b15a-c72be6807571.jpg)
+
+## Main
+![mainView](https://user-images.githubusercontent.com/99216796/172123685-8e38eb59-4890-4ef9-9583-13d2be556f96.jpg)
+
+## Feature View
+![propertyDetail](https://user-images.githubusercontent.com/99216796/172123747-89820fe5-819c-40d8-b2c4-76a2f79abb6d.jpg)
+
 # Summary & Next Steps
 
 R.E.mind is a full stack application that allows users to maintain valuable information on properties they are currently engaged with. This includes the ability to store important notes and track location. Additional functionality is under development and can be found under **_Future Features_** in the Features section listed below.
