@@ -43,7 +43,7 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className='LoginModalForm'>
-      <ul>
+      <ul className='ErrorList'>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}

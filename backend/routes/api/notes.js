@@ -15,7 +15,6 @@ router.get('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
 }));
 
 router.post('/' ,requireAuth, asyncHandler(async (req, res, next) => {
-    console.log('backend entry')
     const {
         description,
         body,
@@ -54,7 +53,6 @@ router.put('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
 
 router.delete('/:propertyId', requireAuth, asyncHandler(async (req, res, next) => {
     const deleteNote = await Note.findByPk(req.body.noteId);
-    console.log(req.body.noteId);
 
     if (deleteNote) {
         await deleteNote.destroy();

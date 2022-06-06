@@ -27,11 +27,9 @@ function ProfileButton({ user }) {
   }, [showMenu]);
 
   const logout = (e) => {
-    console.log('entry"')
     e.preventDefault();
     setErrors([]);
     dispatch(sessionActions.logout());
-    console.log('exit')
     history.push('/')
   };
 

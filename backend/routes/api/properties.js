@@ -85,7 +85,6 @@ router.post('/', requireAuth, validateProperty, asyncHandler(async (req, res, ne
 }));
 
 router.put('/:id(\\d+)', requireAuth, validatePropertyEDIT, asyncHandler(async (req, res, next) => {
-    console.log('edit route')
     const {
         id,
         street,

@@ -3,13 +3,26 @@
   margin-top: 1em;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  background-color: bisque;
+  align-items: center;
+  background-color: #1E2430;
+  color: white;
   padding: 15px;
   border-radius: 5px;
   top: 5.25em;
   left: 1.5em;
   z-index: 1;
+  border: 5px #528afa solid;
+}
+
+.AddPropertyFormInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.property-create-header {
+  display: flex;
+  align-self: flex-start;
 }
 
 .AddPropertyFormLvl1 {
@@ -26,14 +39,15 @@
   margin-top: 10px;
   border: 3px solid black;
   border-radius: 10px;
+  padding: 10px
 }
 
 .AddNewPropButton {
   margin: 7px;
   padding: 3px;
   border-radius: 10px;
-  background-color: black;
-  color: white;
+  background-color: #528afa;
+  color: black;
   position: absolute;
   top: 4.25em;
   left: 6.25em;

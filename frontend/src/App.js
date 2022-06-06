@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Main from './components/Splash'
 import SoloProperty from "./components/PropertyDetail";
+import MapsRender from './components/Maps'
 
 function App() {
   const dispatch = useDispatch();
@@ -32,7 +33,9 @@ function App() {
                 <Main />
               </Route>
               <Route exact path='/properties'>
-                <div>Hopefully a Map?</div>
+                <div>
+                  <MapsRender />
+                </div>
               </Route>
               <Route exact path='/properties/:PropertyId'>
                 <SoloProperty />

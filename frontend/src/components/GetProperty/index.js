@@ -31,7 +31,7 @@ const PropertyList = () => {
               }>
                 <div>
                   <div>
-                    <div className="primary-text">{property.street}</div>
+                    <div className="Prop-List-primary-text">{property.street}</div>
                   </div>
                 </div>
               </NavLink>)

@@ -117,7 +117,7 @@
 }
 
 .SplashDiv3 {
-    background-color: hsla(220, 94%, 65%, 0.4);
+    background-color: rgba(82, 138, 250, 0.4);
     height: 400px;
     background-image: url(../../../public/images/R.E.mind\ CTA.png);
     background-size: 60%;
