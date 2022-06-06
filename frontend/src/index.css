@@ -3,6 +3,7 @@ html, body {
     margin:0px;
     height:100%;
     font-size: 15px;
+    overflow-x: hidden;
   }
 
 .TopLevelParentContainer {
@@ -16,7 +17,6 @@ html, body {
 
 
 .LandingNav {
-    background-color: brown;
     min-width: 20em;
     height: 100%;
 }
@@ -32,5 +32,8 @@ html, body {
     display: flex;
     flex-grow: 1;
     height: 90vh;
-    background-color: bisque;
+}
+
+button {
+    cursor:pointer
 }

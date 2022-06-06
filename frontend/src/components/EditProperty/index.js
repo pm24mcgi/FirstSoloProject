@@ -7,7 +7,6 @@ import './EditProperty.css'
 
 const EditProperty = ({propertyId}) => {
 
-
   const sessionUser = useSelector(state => state.session.user);
   const {id} = propertyId
   const propertiesObject = useSelector(state => state.properties)
@@ -33,9 +32,10 @@ const EditProperty = ({propertyId}) => {
     setPostal(thisProperty.postal)
   }, [id])
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setErrors([])
 
     const userId = sessionUser.id
 
@@ -49,11 +49,11 @@ const EditProperty = ({propertyId}) => {
     }
 
     dispatch(editProperty(payload))
-        .then(() => history.push(`/properties/${id}`))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        })
+      .then(() => history.push(`/properties/${id}`))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      })
   };
 
   return (
