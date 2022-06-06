@@ -20,6 +20,14 @@ const NewPropertyAdd = () => {
     setErrors([])
   }, [state, postal])
 
+  useEffect (() => {
+    setStreet('')
+    setCity('')
+    setState('')
+    setPostal('')
+  }, [addOpen])
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userId = sessionUser.id
