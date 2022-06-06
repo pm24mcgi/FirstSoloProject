@@ -21,6 +21,9 @@
   align-items: center;
 }
 .NoteDetailBtn {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
+  height: 30px;
+  background-color: #1E2430;
+  color: white;
+  border-radius: 10px;
 }

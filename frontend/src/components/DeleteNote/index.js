@@ -17,7 +17,7 @@ const DeleteNote = ({note}) => {
   };
 
   return (
-    <button onClick={handleDelete}>
+    <button className='NoteDetailBtn' onClick={handleDelete}>
       Delete
     </button>
   )

@@ -37,32 +37,32 @@ const EditNote = ({note, setEditOpen}) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className='EditPropertyForm'>
-        <label  className='EditPropertyFormLvl1'>
+    <div className='EditNoteFormContainer'>
+      <form onSubmit={handleSubmit} className='EditNoteForm'>
+        <label  className='EditNoteFormLvl1'>
           Description
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
-            className='EditPropertyFormLvl2'
+            className='EditNoteFormLvl2'
           />
         </label>
-        <label  className='EditPropertyFormLvl1'>
+        <label  className='EditNoteFormLvl1'>
           Deatils
-          <input
+          <textarea
             type="text"
             value={body}
             onChange={(e) => setBody(e.target.value)}
             required
-            className='EditPropertyFormLvl2'
+            className='EditNoteFormLvl2 Details'
           />
         </label>
-        <button type="submit" className='EditPropertyFormLvl3'>Submit</button>
+        <button type="submit" className='EditNoteFormLvl3'>Submit</button>
       </form>
-      <button onClick={() => {setEditOpen(false)}}>Cancel</button>
-    </>
+      <button className='EditNoteFormLvl3' onClick={() => {setEditOpen(false)}}>Cancel</button>
+    </div>
   );
 };
 

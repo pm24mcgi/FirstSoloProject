@@ -16,6 +16,7 @@
 .PostNoteFormLvl1 {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .PostNoteFormLvl2.Details {
@@ -24,6 +25,7 @@
 
 textarea {
   width: 100%;
+  max-width: 100%
 }
 
 .PostNoteFormLvl3 {
