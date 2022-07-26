@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 import { postProperites } from '../../store/properties'
+import GetCoordinates from './coords';
 import './NewPropertyAdd.css'
 
 
@@ -39,6 +40,10 @@ const NewPropertyAdd = () => {
     if (regExState.test(state) && regExPostal.test(postal)) {
 
     setErrors([])
+
+    let address = `${street}, ${city}, ${state}, ${postal}`
+
+    GetCoordinates(address)
 
     const payload = {
       street,
