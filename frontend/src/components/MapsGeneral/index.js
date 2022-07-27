@@ -6,6 +6,8 @@ import './Maps.css'
 
 const MapsGeneralRender = () => {
   const key = useSelector((state) => state.maps.googleAPIKey);
+  const sessionUser = useSelector(state => state.session.user)
+  const properties = Object.values(useSelector(state => state.properties))
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +21,7 @@ const MapsGeneralRender = () => {
   }
 
   return (
-    <MapsGeneral GMapKey={key} />
+    <MapsGeneral GMapKey={key} session={sessionUser} prop={properties} />
   );
 };
 

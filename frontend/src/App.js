@@ -5,7 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Main from './components/Splash'
 import SoloProperty from "./components/PropertyDetail";
-import MapsRender from './components/Maps'
+import MapsGeneralRender from './components/MapsGeneral'
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function App() {
               </Route>
               <Route exact path='/properties'>
                 <div>
-                  <MapsRender />
+                  <MapsGeneralRender />
                 </div>
               </Route>
               <Route exact path='/properties/:PropertyId'>

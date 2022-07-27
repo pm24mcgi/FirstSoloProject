@@ -1,12 +1,11 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import {useJsApiLoader, GoogleMap, Marker} from '@react-google-maps/api'
+import CustomMarker from './Marker';
 import './Maps.css'
 
 
-const MapsGeneral = ({GMapKey}) => {
-
-  const [result, setResult] = useState({lat: 38.57528494361009, lng: -90.2932520234125})
+const MapsGeneral = ({GMapKey, session, prop}) => {
 
   const containerStyle = {
     height: '100%',
@@ -15,8 +14,7 @@ const MapsGeneral = ({GMapKey}) => {
 
   // mapContainerStyle={containerStyle}
 
-  const center = {lat: result.lat, lng: result.lng}
-
+  const center = {lat:39.8282, lng:-98.5795}
   const {isLoaded} = useJsApiLoader ({
     googleMapsApiKey: GMapKey,
     id: 'google-map-script'
@@ -26,8 +24,8 @@ const MapsGeneral = ({GMapKey}) => {
     <div>
       {isLoaded && (
         <div className='MapsMain'>
-          <GoogleMap center={center} zoom={16} mapContainerStyle={containerStyle}>
-            <Marker position={center} />
+          <GoogleMap center={center} zoom={4} mapContainerStyle={containerStyle}>
+            <CustomMarker prop ={prop} session={session}/>
           </GoogleMap>
         </div>
       )}
