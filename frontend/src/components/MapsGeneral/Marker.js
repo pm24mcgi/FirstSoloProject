@@ -10,6 +10,7 @@ let marker = {lat:39.8282, lng:-98.5795}
       {prop.map((property) => {
           marker = {lat: Number(property.lat), lng: Number(property.long)}
           return (
+            session &&
             (session.id === property.userId) &&
             <Marker position={marker} />
             )
