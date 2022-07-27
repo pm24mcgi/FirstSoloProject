@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGMapKey } from '../../store/maps';
-import Maps from './Maps';
+import MapsGeneral from './MapsGeneral';
 import './Maps.css'
 
-const MapsRender = ({property}) => {
+const MapsGeneralRender = () => {
   const key = useSelector((state) => state.maps.googleAPIKey);
   const dispatch = useDispatch();
 
@@ -19,8 +19,8 @@ const MapsRender = ({property}) => {
   }
 
   return (
-    <Maps GMapKey={key} property={property}/>
+    <MapsGeneral GMapKey={key} />
   );
 };
 
-export default MapsRender;
+export default MapsGeneralRender;

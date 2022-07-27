@@ -66,6 +66,8 @@ router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
 
 router.post('/', requireAuth, validateProperty, asyncHandler(async (req, res, next) => {
     const {
+        lat,
+        long,
         street,
         city,
         state,
@@ -73,6 +75,8 @@ router.post('/', requireAuth, validateProperty, asyncHandler(async (req, res, ne
         userId
     } = req.body;
     const property = await Property.build({
+        lat,
+        long,
         street,
         city,
         state,

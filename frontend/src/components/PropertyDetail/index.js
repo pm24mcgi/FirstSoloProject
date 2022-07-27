@@ -44,7 +44,7 @@ const SoloProperty = () => {
       </div>
       <div className='Container2'>
         <div className='MapsDetail'>
-          <MapsRender />
+          <MapsRender property={currentPropertyDetail}/>
         </div>
         <h3 className='Container2Address'>Address:
           <div>{street}, {city}, {state}, {postal}</div>

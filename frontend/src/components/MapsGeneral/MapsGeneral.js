@@ -4,16 +4,9 @@ import {useJsApiLoader, GoogleMap, Marker} from '@react-google-maps/api'
 import './Maps.css'
 
 
-const Maps = ({GMapKey, property}) => {
+const MapsGeneral = ({GMapKey}) => {
 
-
-  const [result, setResult] = useState({lat: 0, lng: 0})
-
-  useEffect(() => {
-    const lat = parseFloat(property.lat)
-    const long = parseFloat(property.long)
-    setResult({lat: lat, lng: long})
-  }, [property]);
+  const [result, setResult] = useState({lat: 38.57528494361009, lng: -90.2932520234125})
 
   const containerStyle = {
     height: '100%',
@@ -42,4 +35,4 @@ const Maps = ({GMapKey, property}) => {
   );
 };
 
-export default Maps;
+export default MapsGeneral;
